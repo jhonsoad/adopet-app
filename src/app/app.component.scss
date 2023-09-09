@@ -3,4 +3,12 @@
     background-image: url('../assets/Forma1.svg'), url('../assets/Forma2.svg');
     background-repeat: no-repeat, no-repeat;
     background-position: top left, right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+body {
+    height: 100vh;
 }
