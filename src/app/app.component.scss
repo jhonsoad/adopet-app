@@ -1,5 +1,4 @@
-.div {
-    background-color: #3772FF;
+div {
     background-image: url('../assets/Forma1.svg'), url('../assets/Forma2.svg');
     background-repeat: no-repeat, no-repeat;
     background-position: top left, right;
@@ -8,6 +7,10 @@
     justify-content: space-between;
     height: 100vh;
 }
+
+// .background {
+//     background-color: #3772FF;
+// }
 
 body {
     height: 100vh;
