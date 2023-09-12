@@ -7,7 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MobileInicialComponent } from './pages/mobile/mobile-inicial/mobile-inicial.component';
 import { MobileCadastroComponent } from './pages/mobile/mobile-cadastro/mobile-cadastro.component';
-import { MobileHomeComponent } from './pages/mobile-home/mobile-home.component';
+import { MobileHomeComponent } from './pages/mobile/mobile-home/mobile-home.component';
 import { MobileLoginComponent } from './pages/mobile/mobile-login/mobile-login.component';
 import { MobilePerfilComponent } from './pages/mobile/mobile-perfil/mobile-perfil.component';
 import { MobileMensagemComponent } from './pages/mobile/mobile-mensagem/mobile-mensagem.component';

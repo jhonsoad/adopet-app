@@ -1,22 +1,24 @@
 <main>
-    <h1><img src="../../../../assets/LogoAzul.svg" alt="Logo adopet"></h1>
-    <p>
-        Ainda não tem cadastro?
-        Então, antes de buscar seu melhor amigo, precisamos de alguns dados:
-    </p>
-    <form action="">
-        <label for="email">Email</label>
-        <input type="email" name="Email" id="email">
-        
-        <label for="nome">Nome</label>
-        <input type="text" name="Nome" id="nome">
-        
-        <label for="senha">Senha</label>
-        <input type="password" name="Senha" id="senha">
-        
-        <label for="confirmaSenha">Confirme sua senha</label>
-        <input type="password" name="confirmaSenha" id="confirmaSenha">
-        
-        <input type="button" value="Cadastrar">
-    </form>
+        <h1><img src="../../../../assets/LogoAzul.svg" alt="Logo adopet"></h1>
+        <p class="ff-poppins pergunta">
+            Ainda não tem cadastro?
+        </p>
+        <p class="ff-poppins">
+            Então, antes de buscar seu melhor amigo, precisamos de alguns dados:
+        </p>
+        <form action=""class="ff-poppins">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required placeholder="Escolha seu melhor email">
+            
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" required placeholder="Digite seu nome completo">
+            
+            <label for="senha">Senha</label>
+            <input type="password" name="Senha" id="senha" required placeholder="Crie uma senha">
+            
+            <label for="confirmaSenha">Confirme sua senha</label>
+            <input type="password" name="confirmaSenha" id="confirmaSenha" required placeholder="Repita a senha criada acima">
+            
+            <input type="button" value="Cadastrar" class="cadastrar">
+        </form>
 </main>

@@ -1,4 +1,4 @@
-<div [style.background-color]="backgroundColor$ | async">
+<div #contentApp [style.background-color]="backgroundColor$ | async" [style.background-position]="backgroundPosition$ | async">
   <app-header></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>

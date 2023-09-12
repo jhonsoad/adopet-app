@@ -15,11 +15,11 @@ export class MobileInicialComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.changeBackgroundColor()
+    this.changeBackgroundColorAndPosition()
   }
 
-  changeBackgroundColor() {
-    this.utilsService.setBackgroundColor('#3772FF');
+  changeBackgroundColorAndPosition() {
+    this.utilsService.setBackgroundColorAndPosition('#3772FF', 'top left,right');
   }
 
   cadastrar() {

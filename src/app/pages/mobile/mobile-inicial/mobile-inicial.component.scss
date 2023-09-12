@@ -1,7 +1,6 @@
 main {
     display: flex;
     flex-direction: column;
-    height: 113%;
 }
 
 div {
@@ -40,6 +39,6 @@ a {
 }
 
 .ilustracao {
-    margin: auto;
+    margin: 0px auto -15px auto;
     display: flex;
 }
