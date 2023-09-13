@@ -1,5 +1,7 @@
-<div #contentApp [style.background-color]="backgroundColor$ | async" [style.background-position]="backgroundPosition$ | async">
-  <app-header></app-header>
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
-</div>
+<main #contentMain [style.background-color]="backgroundColor$ | async">
+  <div #contentDiv [style.background-image]="backgroundPaws$ | async">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
+</main>

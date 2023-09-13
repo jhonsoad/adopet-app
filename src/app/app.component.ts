@@ -8,11 +8,12 @@ import { Router, NavigationEnd  } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
-  @ViewChild('contentApp') elemento!:ElementRef;
+  @ViewChild('contentMain') elementoMain!:ElementRef;
+  @ViewChild('contentDiv') elementoDiv!:ElementRef;
 
   title = 'adopet-app';
   backgroundColor$ = this.utilsService.backgroundColor$;
-  backgroundPosition$ = this.utilsService.backgroundPosition$;
+  backgroundPaws$ = this.utilsService.backgroundPaws$;
 
   constructor(
     private utilsService: UtilsService,
@@ -22,19 +23,28 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.backgroundColor$.subscribe((color) => {
       this.updateBackgroundColor(color);
-    })
+    });
 
-    this.backgroundPosition$.subscribe((position) => {
-      this.updateBackgroundPosition(position);
+    this.backgroundPaws$.subscribe((paws) => {
+      this.updateBackgroundImage(paws);
     })
   
-
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (event.url.includes('/inicial')) {
-          this.utilsService.setBackgroundColorAndPosition('#3772FF', "'top left''right'");
+          this.utilsService.setBackgroundColor('#3772FF');
         } else {
-          this.utilsService.setBackgroundColorAndPosition('white', '"top left","left"');
+          this.utilsService.setBackgroundColor('white');
+        }
+      }
+    });
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (event.url.includes('/cadastro') || event.url.includes('/login')) {
+          this.utilsService.setBackgroundPaws('url(../assets/Patas.svg)');
+        } else {
+          this.utilsService.setBackgroundPaws('');
         }
       }
     });
@@ -43,18 +53,18 @@ export class AppComponent implements AfterViewInit {
 
   private updateBackgroundColor(color: string) {
     setTimeout(() => {
-      const container = this.elemento.nativeElement as HTMLElement
+      const container = this.elementoMain.nativeElement as HTMLElement
       if (container) {
         container.style.backgroundColor = color;
       }
     }, 0);
   }
 
-  private updateBackgroundPosition(position: string) {
+  private updateBackgroundImage(paws: string) {
     setTimeout(() => {
-      const container = this.elemento.nativeElement as HTMLElement as HTMLElement
+      const container = this.elementoDiv.nativeElement as HTMLElement
       if (container) {
-        container.style.backgroundPosition = position;
+        container.style.backgroundImage = paws;
       }
     }, 0);
   }

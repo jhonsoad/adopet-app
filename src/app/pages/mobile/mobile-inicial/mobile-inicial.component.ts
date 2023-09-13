@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-mobile-inicial',
@@ -10,24 +9,19 @@ import { UtilsService } from 'src/app/services/utils.service';
 export class MobileInicialComponent implements OnInit {
 
   constructor(
-    private roterador: Router,
-    private utilsService: UtilsService
+    private roter: Router,
     ) { }
 
   ngOnInit(): void {
-    this.changeBackgroundColorAndPosition()
-  }
-
-  changeBackgroundColorAndPosition() {
-    this.utilsService.setBackgroundColorAndPosition('#3772FF', 'top left,right');
+   
   }
 
   cadastrar() {
-    this.roterador.navigate(['/cadastro'])
+    this.roter.navigate(['/cadastro'])
   }
 
   logar() {
-    console.log('logar')
+    this.roter.navigate(['/login'])
   }
 
 }

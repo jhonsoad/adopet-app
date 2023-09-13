@@ -13,11 +13,11 @@ export class MobileCadastroComponent implements OnInit {
   constructor(private utilsService: UtilsService) {}
 
   ngOnInit(): void {
-    this.changeBackgroundColorAndPosition()
+    // this.changeBackgroundColor()
   }
 
-  changeBackgroundColorAndPosition() {
-    this.utilsService.setBackgroundColorAndPosition('white', 'top left,left');
-  }
+  // changeBackgroundColorAndPosition() {
+  //   this.utilsService.setBackgroundColor('white');
+  // }
 
 }

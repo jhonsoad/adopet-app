@@ -2,19 +2,16 @@ body {
     height: 100vh;
 }
 
+main {
+    background-image: url('../assets/Forma1.svg');
+    background-repeat: no-repeat;
+}
+
 div {
-    background-image: url('../assets/Forma1.svg'), url('../assets/Forma2.svg');
-    background-repeat: no-repeat, no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-/* Inverter a imagem Forma2 horizontalmente */
-div::after {
-    content: "";
-    background-image: url('../assets/Forma2.svg');
+    background-image: '';
     background-repeat: no-repeat;
-    display: inline-block;
-    transform: scaleX(-1);
+    background-position: top right;
 }

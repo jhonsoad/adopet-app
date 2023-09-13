@@ -8,12 +8,16 @@ export class UtilsService {
   private backgroundColorSubject = new BehaviorSubject<string>('white');
   backgroundColor$ = this.backgroundColorSubject.asObservable();
 
-  private backgroundPositionSubject = new BehaviorSubject<string>('top left,left')
-  backgroundPosition$ = this.backgroundPositionSubject.asObservable();
+  private backgroundPawsSubject = new BehaviorSubject<string>('none');
+  backgroundPaws$ = this.backgroundPawsSubject.asObservable();
 
   constructor() { }
 
-  setBackgroundColorAndPosition(color: string, position: string) {
+  setBackgroundColor(color: string) {
     this.backgroundColorSubject.next(color);
+  }
+
+  setBackgroundPaws(paws: string) {
+    this.backgroundPawsSubject.next(paws);
   }
 }
