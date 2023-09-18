@@ -11,6 +11,8 @@ import { MobileHomeComponent } from './pages/mobile/mobile-home/mobile-home.comp
 import { MobileLoginComponent } from './pages/mobile/mobile-login/mobile-login.component';
 import { MobilePerfilComponent } from './pages/mobile/mobile-perfil/mobile-perfil.component';
 import { MobileMensagemComponent } from './pages/mobile/mobile-mensagem/mobile-mensagem.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PetService } from './services/pet.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,12 @@ import { MobileMensagemComponent } from './pages/mobile/mobile-mensagem/mobile-m
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PetService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

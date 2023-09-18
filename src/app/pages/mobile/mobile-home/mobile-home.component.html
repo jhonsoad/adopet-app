@@ -1,1 +1,19 @@
-<p>mobile-home works!</p>
+<main>
+    <h1 class="ff-poppins">
+        Olá! Veja os amigos disponíveis para adoção!
+    </h1>
+    <div class="ff-poppins" *ngIf="listPets.length > 0, else semPet">
+        <section *ngFor="let pet of listPets">
+            <img src="{{ pet.image }}" alt="Imagem de um Pet">
+            <h2>{{ pet.name }}</h2>
+            <p>{{ pet.age }}</p>
+            <p>{{ pet.size }}</p>
+            <p>{{ pet.description }}</p>
+            <p>{{ pet.location }}</p>
+            <p><img src="" alt="">Falar com responsável</p>
+        </section>
+    </div>
+    <ng-template #semPet>
+        <p>Deu ruim pra carregar os pets</p>
+    </ng-template>
+</main>
