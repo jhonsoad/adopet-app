@@ -52,13 +52,14 @@
 		},
 
 		{
-			"id": "6",
 			"image": "../../../../assets/mock/Yoda.svg",
 			"name": "Yoda",
-			"age": "1 ano",
-			"size": "Porte médio",
-			"description": "Ativo e carinhoso",
-			"location": "Nova Iguaçu (RJ)"
+			"description": [
+				 "1 ano",
+				 "Porte médio",
+				 "Ativo e carinhoso",
+				 "Nova Iguaçu (RJ)"
+				]
 		},
 
 		{

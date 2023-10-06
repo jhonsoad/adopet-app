@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,12 +6,11 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+
 
   goHome() {
     this.router.navigate(['/home'])
@@ -19,6 +18,10 @@ export class HeaderComponent implements OnInit {
 
   goMessage() {
     this.router.navigate(['/mensagem'])
+  }
+
+  goPerfil() {
+    this.router.navigate(['/perfil'])
   }
 
 }

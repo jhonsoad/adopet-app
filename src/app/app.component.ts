@@ -44,7 +44,7 @@ export class AppComponent implements AfterViewInit {
         if (event.url.includes('/cadastro') || event.url.includes('/login')) {
           this.utilsService.setBackgroundPaws('url(../assets/Patas.svg)');
         } else {
-          this.utilsService.setBackgroundPaws('');
+          this.utilsService.setBackgroundPaws('url()');
         }
       }
     });
