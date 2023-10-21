@@ -8,6 +8,7 @@ import { MobileMensagemComponent } from './pages/mobile/mobile-mensagem/mobile-m
 import { MobilePerfilComponent } from './pages/mobile/mobile-perfil/mobile-perfil.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/inicial', pathMatch: 'full' },
   { path: 'inicial', component: MobileInicialComponent },
   { path: 'cadastro', component: MobileCadastroComponent },
   { path: 'home', component: MobileHomeComponent },
