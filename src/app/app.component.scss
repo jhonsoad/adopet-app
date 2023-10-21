@@ -1,0 +1,17 @@
+body {
+    height: 100vh;
+}
+
+main {
+    background-image: url('../assets/Forma1.svg');
+    background-repeat: no-repeat;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // background-image: url('');
+    background-repeat: no-repeat;
+    background-position: top right;
+}

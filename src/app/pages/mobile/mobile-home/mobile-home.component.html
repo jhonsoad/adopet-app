@@ -1,0 +1,23 @@
+<main>
+    <h1 class="ff-poppins">
+        Olá! Veja os amigos disponíveis para adoção!
+    </h1>
+    <div class="ff-poppins pet" *ngIf="listPets.length > 0, else semPet">
+        <section *ngFor="let pet of listPets">
+            <img src="{{ pet.image }}" alt="Imagem de um Pet">
+            <div class="dados">
+                <h2>{{ pet.name }}</h2>
+                <p class="perfil">
+                    {{ pet.age }}<br>
+                    {{ pet.size }}<br>
+                    {{ pet.description }}
+                </p>
+                <p class="location">{{ pet.location }}</p>
+                <p class="contato"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
+            </div>
+        </section>
+    </div>
+    <ng-template #semPet>
+        <p class="erro">Deu ruim pra carregar os pets</p>
+    </ng-template>
+</main>

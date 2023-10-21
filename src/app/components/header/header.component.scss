@@ -1,0 +1,19 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 18vh;
+    width: 80%;
+    margin: auto;
+
+    div {
+        display: flex;
+        justify-content: space-around;
+        margin-left: 5%;
+        gap: 3.438rem;
+    }
+    
+    a {
+        margin: 1% 0% 0% 0%;
+    }
+}
