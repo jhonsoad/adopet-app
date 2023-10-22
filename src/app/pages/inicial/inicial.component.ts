@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 @Component({
-  selector: 'app-mobile-inicial',
-  templateUrl: './mobile-inicial.component.html',
-  styleUrls: ['./mobile-inicial.component.scss']
+  selector: 'app-inicial',
+  templateUrl: './inicial.component.html',
+  styleUrls: ['./inicial.component.scss']
 })
 export class MobileInicialComponent implements OnInit {
 

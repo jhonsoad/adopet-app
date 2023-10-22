@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
-  selector: 'app-mobile-cadastro',
-  templateUrl: './mobile-cadastro.component.html',
-  styleUrls: ['./mobile-cadastro.component.scss']
+  selector: 'app-cadastro',
+  templateUrl: './cadastro.component.html',
+  styleUrls: ['./cadastro.component.scss']
 })
 export class MobileCadastroComponent implements OnInit {
 

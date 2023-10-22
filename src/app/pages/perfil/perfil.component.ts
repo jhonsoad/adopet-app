@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-mobile-perfil',
-  templateUrl: './mobile-perfil.component.html',
-  styleUrls: ['./mobile-perfil.component.scss']
+  selector: 'app-perfil',
+  templateUrl: './perfil.component.html',
+  styleUrls: ['./perfil.component.scss']
 })
 export class MobilePerfilComponent implements OnInit {
 

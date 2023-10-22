@@ -1,7 +1,8 @@
 main {
-    background-image: url('../../../../assets/Forma2_e.svg');
+    background-image: url('../../../assets/Forma2_e.svg');
     background-repeat: no-repeat;
     background-position: left 90%;
+    height: 100vh;  
 }
 
 div {
@@ -10,6 +11,8 @@ div {
     align-items: center;
     width: 88%;
     margin: auto;
+    justify-content: space-between;
+    height: 63%;
 }
 
 h1 {
@@ -35,12 +38,12 @@ form {
     flex-direction: column;
     text-align: center;
     align-items: center;
-    margin-bottom: 4rem;
 }
 
 input {
     padding: 0.438rem 0;
     background-color: #F6F6F6;
+    color: #BCBCBC;
     border: none;
     border-radius: 0.438rem;
     font-family: Poppins;
@@ -51,11 +54,7 @@ input {
     filter: drop-shadow(0px 0.125rem 0.125rem rgba(0, 0, 0, 0.15));
 }
 
-input::placeholder {
-    color: #BCBCBC;
-}
-
-.cadastrar {
+.entrar {
     color: #FFF;
     font-size: 1rem;
     font-weight: 600;

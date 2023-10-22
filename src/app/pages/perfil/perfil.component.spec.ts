@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MobileInicialComponent } from './mobile-inicial.component';
+import { MobilePerfilComponent } from './perfil.component';
 
-describe('MobileInicialComponent', () => {
-  let component: MobileInicialComponent;
-  let fixture: ComponentFixture<MobileInicialComponent>;
+describe('MobilePerfilComponent', () => {
+  let component: MobilePerfilComponent;
+  let fixture: ComponentFixture<MobilePerfilComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MobileInicialComponent ]
+      declarations: [ MobilePerfilComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MobileInicialComponent);
+    fixture = TestBed.createComponent(MobilePerfilComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
