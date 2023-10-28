@@ -11,6 +11,9 @@ export class UtilsService {
   private backgroundPawsSubject = new BehaviorSubject<string>('none');
   backgroundPaws$ = this.backgroundPawsSubject.asObservable();
 
+  private backgroundPerfilSubject = new BehaviorSubject<string>('none');
+  backgroundPerfil$ = this.backgroundPerfilSubject.asObservable();
+
   constructor() { }
 
   setBackgroundColor(color: string) {
@@ -19,5 +22,9 @@ export class UtilsService {
 
   setBackgroundPaws(paws: string) {
     this.backgroundPawsSubject.next(paws);
+  
+  }
+  setBackgroundPerfil(perfil: string) {
+    this.backgroundPerfilSubject.next(perfil);
   }
 }
