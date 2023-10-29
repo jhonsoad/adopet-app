@@ -20,15 +20,15 @@ export class MobileHomeComponent implements OnInit {
   }
 
   listarPets() {
-    this.apiService.listarPosts().subscribe(
-      (listPets) => {
+    this.apiService.listarPosts().subscribe({
+      next: (listPets: Post[]) => {
         this.listPets = listPets;
-    },
-    error => {
-      this.errorMessage = error;
-      console.log('erro: ', this.errorMessage);
-    }
-    )
+      },
+      error: error => {
+        this.errorMessage = error;
+        console.log('erro: ', this.errorMessage);
+      }
+    })
   }
 
 }

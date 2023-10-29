@@ -2,15 +2,14 @@
     <div>
         <h1><img src="../../../../assets/LogoAzul.svg" alt="Logo adopet azul"></h1>
         <p class="ff-poppins pergunta">Já tem conta? Faça seu login:</p>
-        <form action="" class="ff-poppins">
+        <form (ngSubmit)="logar()" class="ff-poppins" #logarForm="ngForm">
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" required placeholder="Insira seu email">
+            <input type="text" name="email" id="email" required placeholder="Insira seu email" [(ngModel)]="formData.email">
             
-            <label for="senha">Senha</label>
-            <input type="password" name="senha" id="senha" required placeholder="Insira sua senha">
+            <label for="senhaUsuario">Senha</label>
+            <input type="password" name="senhaUsuario" id="senhaUsuario" required placeholder="Insira sua senha" [(ngModel)]="formData.senhaUsuario">
             
-            <input type="button" value="Entrar" class="entrar">
+            <button type="submit" value="Entrar" class="entrar"></button>
         </form>
     </div>
 </main>
-<!-- ver oq é action do form -->

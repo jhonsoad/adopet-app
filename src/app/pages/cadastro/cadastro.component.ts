@@ -11,9 +11,11 @@ import { UtilsService } from 'src/app/services/utils/utils.service';
 export class MobileCadastroComponent implements OnInit {
 
   formData: Usuario = {
+    // id: 2,
     email: '',
     nomeUsuario: '',
     senhaUsuario: '',
+    telefoneUsuario: '13997622957'
   };
   confirmaSenha: string = '';
 
@@ -37,17 +39,16 @@ export class MobileCadastroComponent implements OnInit {
   }
 
   cadastrarUsuario() {
-    console.log(this.formData)
-    this.apiService.criarConta(this.formData).subscribe(
-      (response) => {
+    this.apiService.criarConta(this.formData).subscribe({
+      next: (response) => {
         // Tratar a resposta da criação da conta (pode redirecionar o usuário, exibir uma mensagem, etc.)
         console.log('Conta criada com sucesso!', response);
       },
-      (error) => {
+      error: (error) => {
         // Tratar erros (exibir mensagens de erro, etc.)
         console.error('Erro ao criar a conta:', error);
       }
-    );
+  });
   }
 
 }

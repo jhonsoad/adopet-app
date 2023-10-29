@@ -3,7 +3,7 @@ export interface Usuario {
     id?: number,
     email: string,
     senhaUsuario?: string,
-    nomeUsuario: string,
+    nomeUsuario?: string,
     telefoneUsuario?: string
 
 }
