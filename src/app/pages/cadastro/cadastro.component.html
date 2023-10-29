@@ -7,20 +7,20 @@
         <p class="ff-poppins">
             Então, antes de buscar seu melhor amigo, precisamos de alguns dados:
         </p>
-        <form action=""class="ff-poppins">
+        <form (ngSubmit)="cadastrarUsuario()" class="ff-poppins" #cadastroForm="ngForm">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" required placeholder="Escolha seu melhor email">
+            <input type="email" name="email" id="email" required placeholder="Escolha seu melhor email" [(ngModel)]="formData.email">
             
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" required placeholder="Digite seu nome completo">
+            <label for="nomeUsuario">Nome</label>
+            <input type="text" name="nomeUsuario" id="nomeUsuario" required placeholder="Digite seu nome completo" [(ngModel)]="formData.nomeUsuario">
             
-            <label for="senha">Senha</label>
-            <input type="password" name="Senha" id="senha" required placeholder="Crie uma senha">
+            <label for="senhaUsuario">Senha</label>
+            <input type="password" name="senhaUsuario" id="senhaUsuario" required placeholder="Crie uma senha" [(ngModel)]="formData.senhaUsuario">
             
             <label for="confirmaSenha">Confirme sua senha</label>
-            <input type="password" name="confirmaSenha" id="confirmaSenha" required placeholder="Repita a senha criada acima">
+            <input type="password" name="confirmaSenha" id="confirmaSenha" required placeholder="Repita a senha criada acima" [(ngModel)]="confirmaSenha">
             
-            <input type="button" value="Cadastrar" class="cadastrar">
+            <button type="submit" value="Cadastrar" class="cadastrar">Cadastrar</button>
         </form>
     </div>
 </main>

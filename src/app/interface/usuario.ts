@@ -4,6 +4,6 @@ export interface Usuario {
     email: string,
     senhaUsuario?: string,
     nomeUsuario: string,
-    telefoneUsuario: string
+    telefoneUsuario?: string
 
 }

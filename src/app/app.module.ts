@@ -11,8 +11,10 @@ import { MobileHomeComponent } from './pages/home/home.component';
 import { MobileLoginComponent } from './pages/login/login.component';
 import { MobilePerfilComponent } from './pages/perfil/perfil.component';
 import { MobileMensagemComponent } from './pages/mensagem/mensagem.component';
-import { HttpClientModule } from '@angular/common/http';
-import { PetService } from './services/pet.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ApiService } from './services/api/api.service';
+import { FormsModule } from '@angular/forms';
+import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,16 @@ import { PetService } from './services/pet.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
-    PetService
+    ApiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -12,6 +12,7 @@ import { Post } from '../../interface/post';
 export class ApiService {
 
   randonValue: string = '';
+  apiMock: string = 'http://localhost:3000/data'
 
 get API(): string {
   return `https://${this.randonValue}-86-5.ngrok-free.app/`;
@@ -20,8 +21,9 @@ get API(): string {
 constructor(private http: HttpClient) { }
 
   // Criar uma conta de usuário
-  criarConta(data: any): Observable<Usuario> {
+  criarConta(data: Usuario): Observable<Usuario> {
     const url = `${this.API}account/create`;
+    console.log(url);
     return this.http.post<Usuario>(url, data);
   }
 
