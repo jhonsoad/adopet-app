@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MobileMensagemComponent implements OnInit {
 
+  formData: any = {};
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  enviarMensagem() {
+    alert(this.formData);
+    console.log(this.formData);
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Pet } from 'src/app/interface/pet';
-import { PetService } from 'src/app/services/pet.service';
+import { Post } from 'src/app/interface/post';
+import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +9,26 @@ import { PetService } from 'src/app/services/pet.service';
 })
 export class MobileHomeComponent implements OnInit {
 
-  listPets: Pet[] = [];
+  listPets: Post[] = [];
   errorMessage: string = '';
 
-  constructor(private petService: PetService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.petService.listar().subscribe(
-      (listPets) => {
+    this.listarPets();
+    console.log('listPets: ', this.listPets);
+  }
+
+  listarPets() {
+    this.apiService.listarPosts().subscribe({
+      next: (listPets: Post[]) => {
         this.listPets = listPets;
-    },
-    error => {
-      this.errorMessage = error;
-    }
-    )
+      },
+      error: error => {
+        this.errorMessage = error;
+        console.log('erro: ', this.errorMessage);
+      }
+    })
   }
 
 }

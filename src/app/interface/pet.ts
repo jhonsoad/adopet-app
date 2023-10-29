@@ -1,9 +1,16 @@
 export interface Pet {
-    id: number;
-    image: string;
-    name: string;
-    age: number;
-    size: string;
-    description: string;
-    location: string;
+
+    imageName: string,
+    comentario: string,
+    nomePet: string,
+    idadePet: number,
+    tamanhoPet: string,
+    cidadePet: string,
+
+    usuarioLogin: {
+
+        idUsuario: number
+
+    }
+
 }

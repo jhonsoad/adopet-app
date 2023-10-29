@@ -1,7 +1,12 @@
 <main #contentMain [style.background-color]="backgroundColor$ | async">
   <div #contentDiv [style.background-image]="backgroundPaws$ | async">
+  <div></div>
     <app-header></app-header>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
   </div>
+  <form action="">
+    <input id="valor" [(ngModel)]="randonValue" name="randonValue" placeholder="Insira o valor do randonValue">
+    <button (click)="onRandonValueChange()">Enviar</button>
+  </form>
 </main>

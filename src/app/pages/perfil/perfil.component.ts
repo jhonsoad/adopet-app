@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MobilePerfilComponent implements OnInit {
 
+  formData: any = {};
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  alterarCadastro(){
+    alert("Alterar cadastro");
+  
   }
 
 }

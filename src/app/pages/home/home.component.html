@@ -4,15 +4,15 @@
     </h1>
     <div class="ff-poppins pet" *ngIf="listPets.length > 0, else semPet">
         <section *ngFor="let pet of listPets">
-            <img src="{{ pet.image }}" alt="Imagem de um Pet">
+            <img src="{{ pet.imageName }}" alt="Imagem de um Pet">
             <div class="dados">
-                <h2>{{ pet.name }}</h2>
+                <h2>{{ pet.petName }}</h2>
                 <p class="perfil">
-                    {{ pet.age }}<br>
-                    {{ pet.size }}<br>
-                    {{ pet.description }}
+                    {{ pet.idadePet }} anos<br>
+                    {{ pet.tamanhoPet }}<br>
+                    {{ pet.comment }}
                 </p>
-                <p class="location">{{ pet.location }}</p>
+                <p class="location">{{ pet.cidadePet }}</p>
                 <p class="contato"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
             </div>
         </section>

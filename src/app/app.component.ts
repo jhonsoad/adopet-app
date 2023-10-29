@@ -1,26 +1,31 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { UtilsService } from './services/utils.service';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { UtilsService } from './services/utils/utils.service';
 import { Router, NavigationEnd  } from '@angular/router';
+import { ApiService } from './services/api/api.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   @ViewChild('contentMain') elementoMain!:ElementRef;
   @ViewChild('contentDiv') elementoDiv!:ElementRef;
 
   title = 'adopet-app';
+  randonValue: string = '';
   backgroundColor$ = this.utilsService.backgroundColor$;
   backgroundPaws$ = this.utilsService.backgroundPaws$;
+  // backgroundPerfil$ = this.utilsService.backgroundPerfil$;
 
   constructor(
     private utilsService: UtilsService,
-    private router: Router
-    ) {}
+    private router: Router,
+    private apiService: ApiService
+    ) {
+      
+    this.updateBackgroundColor('#3772FF');
 
-  ngAfterViewInit() {
     this.backgroundColor$.subscribe((color) => {
       this.updateBackgroundColor(color);
     });
@@ -28,6 +33,10 @@ export class AppComponent implements AfterViewInit {
     this.backgroundPaws$.subscribe((paws) => {
       this.updateBackgroundImage(paws);
     })
+
+    // this.backgroundPerfil$.subscribe((perfil) => {
+    //   this.updateBackgroundImagePerfil(perfil);
+    // })
   
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -48,7 +57,22 @@ export class AppComponent implements AfterViewInit {
         }
       }
     });
+
+    // this.router.events.subscribe((event) => {
+    //   if (event instanceof NavigationEnd) {
+    //     if (event.url.includes('/home') || event.url.includes('/mensagem') || event.url.includes('/perfil')) {
+    //       this.utilsService.setBackgroundPerfil('url(../assets/Usuário.svg)');
+    //     } else {
+    //       this.utilsService.setBackgroundPerfil('url()');
+    //     }
+    //   }
+    // });
+
   }  
+
+  onRandonValueChange() {
+    this.apiService.randonValue = this.randonValue;
+  }
 
 
   private updateBackgroundColor(color: string) {
@@ -68,4 +92,13 @@ export class AppComponent implements AfterViewInit {
       }
     }, 0);
   }
+
+  // private updateBackgroundImagePerfil(perfil: string) {
+  //   setTimeout(() => {
+  //     const container = this.elementoDiv.nativeElement as HTMLElement
+  //     if (container) {
+  //       container.style.backgroundImage = perfil;
+  //     }
+  //   }, 0);
+  // }
 }
