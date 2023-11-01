@@ -37,6 +37,16 @@ export class AppComponent {
     // this.backgroundPerfil$.subscribe((perfil) => {
     //   this.updateBackgroundImagePerfil(perfil);
     // })
+
+    setTimeout(() => {
+        if (this.router.url === '/inicial' || this.router.url === '/') {
+          this.utilsService.setBackgroundColor('#3772FF');
+        } else {
+          this.utilsService.setBackgroundColor('white');
+        }
+      },100);
+
+    
   
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -67,6 +77,7 @@ export class AppComponent {
     //     }
     //   }
     // });
+    console.log(this.backgroundColor$)
 
   }  
 
