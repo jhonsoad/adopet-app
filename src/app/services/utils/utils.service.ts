@@ -11,8 +11,8 @@ export class UtilsService {
   private backgroundPawsSubject = new BehaviorSubject<string>('none');
   backgroundPaws$ = this.backgroundPawsSubject.asObservable();
 
-  private backgroundPerfilSubject = new BehaviorSubject<string>('none');
-  backgroundPerfil$ = this.backgroundPerfilSubject.asObservable();
+  private imagePerfilSubject = new BehaviorSubject<boolean>(false);
+  imagePerfil$ = this.imagePerfilSubject.asObservable();
 
   constructor() { }
 
@@ -24,7 +24,7 @@ export class UtilsService {
     this.backgroundPawsSubject.next(paws);
   
   }
-  setBackgroundPerfil(perfil: string) {
-    this.backgroundPerfilSubject.next(perfil);
+  setImagePerfil(condition: boolean) {
+    this.imagePerfilSubject.next(condition);
   }
 }

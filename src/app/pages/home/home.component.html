@@ -4,7 +4,7 @@
     </h1>
     <div class="ff-poppins pet" *ngIf="listPets.length > 0, else semPet">
         <section *ngFor="let pet of listPets">
-            <img src="{{ pet.imageName }}" alt="Imagem de um Pet">
+            <img [src]="'https://' + variableValue + '-86-5.ngrok-free.app/plubi/images/' + pet.imageName" alt="Imagem do Pet">
             <div class="dados">
                 <h2>{{ pet.petName }}</h2>
                 <p class="perfil">
@@ -13,7 +13,7 @@
                     {{ pet.comment }}
                 </p>
                 <p class="location">{{ pet.cidadePet }}</p>
-                <p class="contato"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
+                <p class="contato" (click)="irParaMensagem()"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
             </div>
         </section>
     </div>

@@ -11,11 +11,11 @@ import { Post } from '../../interface/post';
 })
 export class ApiService {
 
-  randonValue: string = '';
+  variableValue: string = '';
   apiMock: string = 'http://localhost:3000/data'
 
 get API(): string {
-  return `https://${this.randonValue}-86-5.ngrok-free.app/`;
+  return `https://${this.variableValue}-86-5.ngrok-free.app/`;
 }
 
 constructor(private http: HttpClient) { }
