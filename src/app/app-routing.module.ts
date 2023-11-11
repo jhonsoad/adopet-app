@@ -6,6 +6,7 @@ import { MobileHomeComponent } from './pages/home/home.component';
 import { MobileLoginComponent } from './pages/login/login.component';
 import { MobileMensagemComponent } from './pages/mensagem/mensagem.component';
 import { MobilePerfilComponent } from './pages/perfil/perfil.component';
+import { PostarComponent } from './pages/postar/postar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicial', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'home', component: MobileHomeComponent },
   { path: 'login', component: MobileLoginComponent },
   { path: 'mensagem', component: MobileMensagemComponent },
-  { path: 'perfil', component: MobilePerfilComponent }
+  { path: 'perfil', component: MobilePerfilComponent },
+  { path: 'postar', component: PostarComponent}
 ];
 
 @NgModule({

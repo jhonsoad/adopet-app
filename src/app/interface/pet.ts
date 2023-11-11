@@ -3,7 +3,7 @@ export interface Pet {
     imageName: string,
     comentario: string,
     nomePet: string,
-    idadePet: number,
+    idadePet: string,
     tamanhoPet: string,
     cidadePet: string,
 

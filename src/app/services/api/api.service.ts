@@ -21,13 +21,13 @@ get API(): string {
 constructor(private http: HttpClient) { }
 
   // Criar uma conta de usuário
-  criarConta(data: Usuario): Observable<Usuario> {
+  criarConta(data: Usuario): Observable<any> {
     const url = `${this.API}account/create`;
     console.log(url);
-    return this.http.post<Usuario>(url, data);
+    return this.http.post<any>(url, data);
   }
 
-  // Consultar informações de um usuárioS
+  // Consultar informações de um usuário
   consultarConta(userId: number): Observable<Usuario> {
     const url = `${this.API}account/${userId}`;
     return this.http.get<Usuario>(url);
@@ -40,7 +40,7 @@ constructor(private http: HttpClient) { }
   }
 
   // Criar um post
-  criarPost(data: any): Observable<Pet> {
+  criarPost(data: Pet): Observable<Pet> {
     const url = `${this.API}publi/createPost`;
     return this.http.post<Pet>(url, data);
   }
@@ -67,6 +67,12 @@ constructor(private http: HttpClient) { }
   listarPost(id: number): Observable<Post> {
     const url = `${this.API}publi/${id}`;
     return this.http.get<Post>(url);
+  }
+
+  // Logar
+  logar(data: Usuario): Observable<Usuario> {
+    const url = `${this.API}login`;
+    return this.http.post<Usuario>(url, data);
   }
 
 }

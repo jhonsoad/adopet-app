@@ -13,6 +13,7 @@ export class MobileHomeComponent implements OnInit {
   listPets: Post[] = [];
   errorMessage: string = '';
   variableValue: string = '';
+  loading: boolean = true;
 
   constructor(
     private apiService: ApiService,
@@ -25,13 +26,20 @@ export class MobileHomeComponent implements OnInit {
   }
 
   listarPets() {
+    this.loading = true;
     this.apiService.listarPosts().subscribe({
       next: (listPets: Post[]) => {
         this.listPets = listPets;
         this.variableValue = this.apiService.variableValue;
+        setTimeout(() => {
+          this.loading = false;
+        }, 2000);
       },
       error: error => {
         this.errorMessage = error;
+        setTimeout(() => {
+          this.loading = false;
+        }, 2000);
         console.log('erro: ', this.errorMessage);
       }
     })

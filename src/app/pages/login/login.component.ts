@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class MobileLoginComponent implements OnInit {
 
+  loading: boolean = false;
   userId:number = 4;
   formData: Usuario = {
     email: '',
@@ -21,14 +22,19 @@ export class MobileLoginComponent implements OnInit {
   }
 
   logar() {
-    this.apiService.consultarConta(this.userId).subscribe({
+    this.loading = true;
+    this.apiService.logar(this.formData).subscribe({
       next: (res: Usuario) => {
-        // Tratar a resposta da criação da conta (pode redirecionar o usuário, exibir uma mensagem, etc.)
-        console.log('Conta criada com sucesso!', res);
+        setTimeout(() => {
+          this.loading = false;
+        }, 2000);
+        console.log('Conta logadacom sucesso!', res);
       },
       error: (error) => {
-        // Tratar erros (exibir mensagens de erro, etc.)
-        console.error('Erro ao criar a conta:', error);
+        setTimeout(() => {
+          this.loading = false;
+        }, 2000);
+        console.error('Erro ao logar na conta:', error);
       }
     });
   }

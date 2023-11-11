@@ -1,15 +1,23 @@
 <main>
     <div>
         <h1><img src="../../../../assets/LogoAzul.svg" alt="Logo adopet azul"></h1>
-        <p class="ff-poppins pergunta">Já tem conta? Faça seu login:</p>
-        <form (ngSubmit)="logar()" class="ff-poppins" #logarForm="ngForm">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" required placeholder="Insira seu email" [(ngModel)]="formData.email">
-            
-            <label for="senhaUsuario">Senha</label>
-            <input type="password" name="senhaUsuario" id="senhaUsuario" required placeholder="Insira sua senha" [(ngModel)]="formData.senhaUsuario">
-            
-            <button type="submit" value="Entrar" class="entrar">Entrar</button>
-        </form>
+        
+        <div *ngIf="loading" class="loading">
+            <img  src="../../../assets/loading.svg" alt="Carregando">
+            <p class="ff-poppins aguarde">AUGUARDE...</p>
+        </div>
+
+        <div *ngIf="!loading" >
+            <p class="ff-poppins pergunta">Já tem conta? Faça seu login:</p>
+            <form (ngSubmit)="logar()" class="ff-poppins" #logarForm="ngForm">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" required placeholder="Insira seu email" [(ngModel)]="formData.email">
+                
+                <label for="senhaUsuario">Senha</label>
+                <input type="password" name="senhaUsuario" id="senhaUsuario" required placeholder="Insira sua senha" [(ngModel)]="formData.senhaUsuario">
+                
+                <button type="submit" value="Entrar" class="entrar">Entrar</button>
+            </form>
+        </div>
     </div>
 </main>

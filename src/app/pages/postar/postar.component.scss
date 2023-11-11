@@ -1,5 +1,5 @@
 main {
-    // height: 100vh;
+    /* height: 100vh; */
 div {
         width: 85%;
         margin: auto;
@@ -27,6 +27,10 @@ div {
         border-radius: 10px;
         margin-bottom: 16px;
 
+        fieldset {
+            display: flex;
+        }
+
         label {
             margin-top: 16px;
             margin-bottom: 8px;
@@ -46,7 +50,6 @@ div {
             border: none;
             height: 3rem;
             padding-left: 1rem;
-            color: #000;
         }
 
         input::placeholder {
@@ -82,6 +85,10 @@ div {
             border-radius: 6px;
             width: 9.25rem;
             margin: auto;
+        }
+
+        .idade {
+            display: flex;
         }
     }
 }

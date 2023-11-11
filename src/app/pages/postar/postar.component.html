@@ -1,0 +1,33 @@
+<main>
+  <div>
+      <h2 class="ff-poppins">Crie um post para um aniamal que está procurando um novo lar:</h2>
+      <form (ngSubmit)="criarPost()" class="ff-poppins" #postarForm="ngForm">
+
+          <label for="imagem">Foto do Pet</label>
+          <input type="file" name="imagem" id="imagem" accept="image/*">
+
+          <label for="nomePet">Nome do Pet</label>
+          <input type="text" name="nomePet" id="nomePet" [(ngModel)]="formData.nomePet" required placeholder="Insira seu nome completo">
+
+          <label for="idadePet">Idade do Pet</label>
+          <div class="idade">
+            <input type="number" name="idadePet" id="idadePet" [(ngModel)]="idadeNumero" required placeholder="Insira seu telefone e/ou whatsapp">
+            <input style="color: #BCBCBC" list="idades" name="idadePet" id="idadePet" [(ngModel)]="idadeTexto" required>
+            <datalist id="idades">
+              <option value="Anos">
+              <option value="Meses">
+              <option value="Semanas">
+              <option value="Dias">
+            </datalist>
+          </div>
+
+            <label for="tamanhoPet">Tamanho do animal</label>
+          <input type="text" name="tamanhoPet" id="tamanhoPet" [(ngModel)]="formData.tamanhoPet" required placeholder="Por qual animal você se interessou?">
+      
+          <label for="cidadePet">Cidade do animal</label>
+          <input type="text" name="cidadePet" id="cidadePet" [(ngModel)]="formData.nomePet" required placeholder="Por qual animal você se interessou?">
+       
+          <button type="submit" class="enviar">Enviar</button>
+      </form>
+  </div>
+</main>

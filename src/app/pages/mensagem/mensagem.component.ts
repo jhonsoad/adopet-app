@@ -8,6 +8,7 @@ import emailjs from '@emailjs/browser';
 })
 export class MobileMensagemComponent implements OnInit {
 
+  loading: boolean = false;
   formData: any = {
 
     nomeUsuario: '',
@@ -25,6 +26,7 @@ export class MobileMensagemComponent implements OnInit {
 
   async enviarMensagem() {
 
+    this.loading = true;
     emailjs.init('f6e2HUIcY6eEgUDoK');
     let response = await emailjs.send("service_iutd9j5","template_v8gutde", {
 
@@ -34,10 +36,18 @@ export class MobileMensagemComponent implements OnInit {
       petName: this.formData.petName,
       mensagem: this.formData.mensagem,
 
-    })
-    console.log('SUCCESS!', response.status, response.text);
+    });
+    setTimeout( () =>{
+      console.log('SUCCESS!', response.status, response.text);
+      this.loading = false;
+    }, 2000)
 
-	} catch (err: any) { console.log('FAILED...', err)};
+	} catch (err: any) { 
+    setTimeout(() => {
+      console.log('FAILED...', err);
+      this.loading = false;
+    }, 2000);
+  }
 
   // emailjs.send('<YOUR_SERVICE_ID>','<YOUR_TEMPLATE_ID>', templateParams, '<YOUR_PUBLIC_KEY>')
 	// .then((response) => {
