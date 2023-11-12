@@ -69,7 +69,7 @@ export class AppComponent {
   }
 
   onVariableValueChange() {
-    const value = prompt('Insira o valor variavel, Exemplo:\nhttps://${ Valor Variável }-86-5.ngrok-free.app/')
+    const value = prompt('Insira a url da sua API, Exemplo:\nhttps://7b1a-191-37-86-4.ngrok-free.app/')
     if(value) {
       this.apiService.variableValue = value;
     }

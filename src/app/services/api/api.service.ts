@@ -15,7 +15,7 @@ export class ApiService {
   apiMock: string = 'http://localhost:3000/data'
 
 get API(): string {
-  return `https://${this.variableValue}-86-5.ngrok-free.app/`;
+  return this.variableValue;
 }
 
 constructor(private http: HttpClient) { }

@@ -10,9 +10,9 @@
             Olá! Veja os amigos disponíveis para adoção!
         </h1>
         
-        <div class="ff-poppins pet" *ngIf="listPets.length > 0, else semPet">
+        <div class="ff-poppins pet" *ngIf="listPets.length > 0; else semPet">
             <section *ngFor="let pet of listPets">
-                <img [src]="'https://' + variableValue + '-86-5.ngrok-free.app/plubi/images/' + pet.imageName" alt="Imagem do Pet">
+                <img [src]="variableValue + 'publi/images/' + pet.imageName" alt="Imagem do Pet">
                 <div class="dados">
                     <h2>{{ pet.petName }}</h2>
                     <p class="perfil">
