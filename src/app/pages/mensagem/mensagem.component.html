@@ -1,7 +1,8 @@
 <main>
     <div>
         <h2 class="ff-poppins">Envie uma mensagem para a pessoa ou instituição que está cuidando do animal:</h2>
-        <form (ngSubmit)="enviarMensagem()" class="ff-poppins" #mensagemForm="ngForm">
+        <img *ngIf="loading" src="../../../assets/loading.svg" alt="Carregando">
+        <form *ngIf="!loading" (ngSubmit)="enviarMensagem()" class="ff-poppins" #mensagemForm="ngForm">
             <label for="nomeUsuario">Nome</label>
             <input type="text" name="nomeUsuario" id="nomeUsuario" [(ngModel)]="formData.nomeUsuario" required placeholder="Insira seu nome completo">
             

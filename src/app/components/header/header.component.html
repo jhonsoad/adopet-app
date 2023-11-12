@@ -4,6 +4,6 @@
             <a (click)="goHome()"><img src="../../../assets/Casa.svg" alt="Icone de uma casa"></a>
             <a (click)="goMessage()"><img src="../../../assets/Mensagens.svg" alt="Icone de uma carta"></a>
         </div>
-        <a (click)="goPerfil()" class="perfil"><img src="../../../assets/Usuário.svg" alt="Foto do perfil"></a>
+        <a *ngIf="perfil" (click)="goPerfil()" class="perfil"><img src="../../../assets/Usuário.svg" alt="Foto do perfil"></a>
     </nav>
 </header>

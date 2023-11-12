@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interface/usuario';
 import { ApiService } from 'src/app/services/api/api.service';
 import { UtilsService } from 'src/app/services/utils/utils.service';
@@ -18,6 +18,7 @@ export class MobileCadastroComponent implements OnInit {
     telefoneUsuario: '13997622957'
   };
   confirmaSenha: string = '';
+  loading: boolean = false;
 
   constructor(private utilsService: UtilsService, private apiService: ApiService) {}
 
@@ -39,13 +40,18 @@ export class MobileCadastroComponent implements OnInit {
   }
 
   cadastrarUsuario() {
+    this.loading = true;
     this.apiService.criarConta(this.formData).subscribe({
       next: (response) => {
-        // Tratar a resposta da criação da conta (pode redirecionar o usuário, exibir uma mensagem, etc.)
+        setTimeout(() => {
+          this.loading = false;
+        }, 2000);
         console.log('Conta criada com sucesso!', response);
       },
       error: (error) => {
-        // Tratar erros (exibir mensagens de erro, etc.)
+        setTimeout(() => {
+          this.loading = false;
+        }, 2000);
         console.error('Erro ao criar a conta:', error);
       }
   });

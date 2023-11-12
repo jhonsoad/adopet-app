@@ -1,23 +1,32 @@
 <main>
-    <h1 class="ff-poppins">
-        Olá! Veja os amigos disponíveis para adoção!
-    </h1>
-    <div class="ff-poppins pet" *ngIf="listPets.length > 0, else semPet">
-        <section *ngFor="let pet of listPets">
-            <img src="{{ pet.imageName }}" alt="Imagem de um Pet">
-            <div class="dados">
-                <h2>{{ pet.petName }}</h2>
-                <p class="perfil">
-                    {{ pet.idadePet }} anos<br>
-                    {{ pet.tamanhoPet }}<br>
-                    {{ pet.comment }}
-                </p>
-                <p class="location">{{ pet.cidadePet }}</p>
-                <p class="contato"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
-            </div>
-        </section>
+    
+    <div *ngIf="loading" class="loading">
+        <img  src="../../../assets/loading.svg" alt="Carregando">
+        <p class="ff-poppins aguarde">AUGUARDE...</p>
+    </div>
+    
+    <div *ngIf="!loading">
+        <h1 class="ff-poppins">
+            Olá! Veja os amigos disponíveis para adoção!
+        </h1>
+        
+        <div class="ff-poppins pet" *ngIf="listPets.length > 0; else semPet">
+            <section *ngFor="let pet of listPets">
+                <img [src]="variableValue + 'publi/images/' + pet.imageName" alt="Imagem do Pet">
+                <div class="dados">
+                    <h2>{{ pet.petName }}</h2>
+                    <p class="perfil">
+                        {{ pet.idadePet }} anos<br>
+                        {{ pet.tamanhoPet }}<br>
+                        {{ pet.comment }}
+                    </p>
+                    <p class="location">{{ pet.cidadePet }}</p>
+                    <p class="contato" (click)="irParaMensagem()"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
+                </div>
+            </section>
+        </div>
     </div>
     <ng-template #semPet>
-        <p class="erro">Deu ruim pra carregar os pets</p>
+        <p class="erro">Não foi possível carregar os Pets. Tente novamente mais tarde</p>
     </ng-template>
 </main>

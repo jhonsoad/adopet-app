@@ -13,10 +13,8 @@ export class AppComponent {
   @ViewChild('contentDiv') elementoDiv!:ElementRef;
 
   title = 'adopet-app';
-  randonValue: string = '';
   backgroundColor$ = this.utilsService.backgroundColor$;
   backgroundPaws$ = this.utilsService.backgroundPaws$;
-  // backgroundPerfil$ = this.utilsService.backgroundPerfil$;
 
   constructor(
     private utilsService: UtilsService,
@@ -33,10 +31,6 @@ export class AppComponent {
     this.backgroundPaws$.subscribe((paws) => {
       this.updateBackgroundImage(paws);
     })
-
-    // this.backgroundPerfil$.subscribe((perfil) => {
-    //   this.updateBackgroundImagePerfil(perfil);
-    // })
 
     setTimeout(() => {
         if (this.router.url === '/inicial' || this.router.url === '/') {
@@ -68,21 +62,17 @@ export class AppComponent {
       }
     });
 
-    // this.router.events.subscribe((event) => {
-    //   if (event instanceof NavigationEnd) {
-    //     if (event.url.includes('/home') || event.url.includes('/mensagem') || event.url.includes('/perfil')) {
-    //       this.utilsService.setBackgroundPerfil('url(../assets/Usuário.svg)');
-    //     } else {
-    //       this.utilsService.setBackgroundPerfil('url()');
-    //     }
-    //   }
-    // });
-    console.log(this.backgroundColor$)
+  }
 
-  }  
+  ngAfterViewInit() {
+    this.onVariableValueChange();
+  }
 
-  onRandonValueChange() {
-    this.apiService.randonValue = this.randonValue;
+  onVariableValueChange() {
+    const value = prompt('Insira a url da sua API, Exemplo:\nhttps://7b1a-191-37-86-4.ngrok-free.app/')
+    if(value) {
+      this.apiService.variableValue = value;
+    }
   }
 
 
@@ -104,12 +94,4 @@ export class AppComponent {
     }, 0);
   }
 
-  // private updateBackgroundImagePerfil(perfil: string) {
-  //   setTimeout(() => {
-  //     const container = this.elementoDiv.nativeElement as HTMLElement
-  //     if (container) {
-  //       container.style.backgroundImage = perfil;
-  //     }
-  //   }, 0);
-  // }
 }
