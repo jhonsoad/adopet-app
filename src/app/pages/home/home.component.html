@@ -12,7 +12,7 @@
         
         <div class="ff-poppins pet" *ngIf="listPets.length > 0; else semPet">
             <section *ngFor="let pet of listPets">
-                <img [src]="variableValue + 'publi/images/' + pet.imageName" alt="Imagem do Pet">
+                <img [src]="getPetImageUrl(pet.imageName)" alt="Imagem do Pet">
                 <div class="dados">
                     <h2>{{ pet.petName }}</h2>
                     <p class="perfil">
