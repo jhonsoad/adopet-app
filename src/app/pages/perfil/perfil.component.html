@@ -1,24 +1,32 @@
 <main>
     <div>
-        <h2 class="ff-poppins">Esse é o perfil que aparece para responsáveis ou ONGs que recebem sua mensagem.</h2>
-        <form (ngSubmit)="alterarCadastro()" class="ff-poppins" #alterarForm="ngForm">
-            <h3>Perfil</h3>
-            <label for="imagem">Foto</label>
-            <input type="file" name="imagem" id="imagem" accept="">
-
-            <label for="nomeUsuario">Nome</label>
-            <input type="text" name="nomeUsuario" id="nomeUsuario" [(ngModel)]="formData.nomeUsuario" required placeholder="Insira seu nome completo">
+        
+        <div *ngIf="loading" class="loading">
+            <img  src="../../../assets/loading.svg" alt="Carregando">
+            <p class="ff-poppins aguarde">AUGUARDE...</p>
+        </div>
+        <div *ngIf="!loading">
+            <h2 class="ff-poppins">Esse é o perfil que aparece para responsáveis ou ONGs que recebem sua mensagem.</h2>
             
-            <label for="telefoneUsuario">Telefone</label>
-            <input style="color: #BCBCBC" type="tel" name="telefoneUsuario" id="telefoneUsuario" [(ngModel)]="formData.telefoneUsuario" required placeholder="Insira seu telefone e/ou whatsapp">
-            
-            <label for="cidadePet">Cidade</label>
-            <input type="text" name="cidadePet" id="cidadePet" [(ngModel)]="formData.cidadePet" required placeholder="Insira o nome da sua cidade">
-            
-            <label for="sobre">Sobre</label>
-            <textarea cols="70" rows="10" name="sobre" id="sobre" [(ngModel)]="formData.sobre" placeholder="Escreva sua mensagem.">Escreva sobre você</textarea>
-            
-            <button class="salvar">Salvar</button>
-        </form>
+            <form (ngSubmit)="alterarCadastro()" class="ff-poppins" #alterarForm="ngForm">
+                <h3>Perfil</h3>
+                <label for="imagem">Foto</label>
+                <input type="file" name="imagem" id="imagem" accept="image/*">
+    
+                <label for="nomeUsuario">Nome</label>
+                <input type="text" name="nomeUsuario" id="nomeUsuario" [(ngModel)]="formData.nomeUsuario" required placeholder="Insira seu nome completo">
+                
+                <label for="telefoneUsuario">Telefone</label>
+                <input style="color: #BCBCBC" type="tel" name="telefoneUsuario" id="telefoneUsuario" [(ngModel)]="formData.telefoneUsuario" required placeholder="Insira seu telefone e/ou whatsapp">
+                
+                <label for="cidadePet">Cidade</label>
+                <input type="text" name="cidadePet" id="cidadePet" [(ngModel)]="formData.cidadePet" required placeholder="Insira o nome da sua cidade">
+                
+                <label for="sobre">Sobre</label>
+                <textarea cols="70" rows="10" name="sobre" id="sobre" [(ngModel)]="formData.sobre" placeholder="Escreva sua mensagem.">Escreva sobre você</textarea>
+                
+                <button class="salvar">Salvar</button>
+            </form>
+        </div>
     </div>
 </main>

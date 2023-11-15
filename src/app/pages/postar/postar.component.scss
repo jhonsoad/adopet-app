@@ -1,5 +1,3 @@
-main {
-    /* height: 100vh; */
 div {
         width: 85%;
         margin: auto;
@@ -26,10 +24,6 @@ div {
         gap: 5px;
         border-radius: 10px;
         margin-bottom: 16px;
-
-        fieldset {
-            display: flex;
-        }
 
         label {
             margin-top: 16px;
@@ -84,12 +78,18 @@ div {
             padding: 8px 49px 8px 48px;
             border-radius: 6px;
             width: 9.25rem;
-            margin: auto;
-        }
-
-        .idade {
-            display: flex;
+            margin: 32px auto;
         }
     }
-}
+
+    .aguarde {
+        margin: 2rem 0 11rem 0;
+        color: #3772FF;
+    }
+        
+    .loading {
+        margin-top: 8rem;
+        text-align: center;
+        width: auto;
+    }
 }

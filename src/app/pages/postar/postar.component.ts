@@ -9,25 +9,22 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class PostarComponent implements OnInit {
 
-  idadeNumero: number = 0;
-  idadeTexto: string = '';
+  loading: boolean = false;
   
-    formData: Pet = {
-  
-      imageName: '',
-      comentario: '',
-      nomePet: '',
-      idadePet: this.idadeNumero + this.idadeTexto,
-      tamanhoPet: '',
-      cidadePet: '',
-  
-      usuarioLogin: {
-  
-          idUsuario: 0
-  
-      }
-  
-    };
+  formData: Pet = {
+
+    imageName: '',
+    comentario: '',
+    nomePet: '',
+    idadePet: '',
+    tamanhoPet: '',
+    cidadePet: '',
+
+    usuarioLogin: {
+      idUsuario: 0
+    }
+
+  };
 
   constructor(private apiService: ApiService) { }
 
@@ -35,13 +32,18 @@ export class PostarComponent implements OnInit {
   }
 
   criarPost() {
+    this.loading = true;
     this.apiService.criarPost(this.formData).subscribe({
       next: (response) => {
-        // Tratar a resposta da criação da conta (pode redirecionar o usuário, exibir uma mensagem, etc.)
+        setTimeout(() => {
+          this.loading = false;
+        }, 2000);
         console.log('Conta criada com sucesso!', response);
       },
       error: (error) => {
-        // Tratar erros (exibir mensagens de erro, etc.)
+        setTimeout(() => {
+          this.loading = false;
+        }, 2000);
         console.error('Erro ao criar a conta:', error);
       }
   });
