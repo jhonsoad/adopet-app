@@ -1,6 +1,8 @@
-import { HttpHeaders } from '@angular/common/http';
+// import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { Observable, map } from 'rxjs';
 import { Post } from 'src/app/interface/post';
 import { ApiService } from 'src/app/services/api/api.service';
 
@@ -15,10 +17,12 @@ export class MobileHomeComponent implements OnInit {
   errorMessage: string = '';
   variableValue: string = '';
   loading: boolean = true;
+  petImages: { [key: string]: Observable<SafeUrl> } = {};
 
   constructor(
     private apiService: ApiService,
-    private roter: Router
+    private roter: Router,
+    private sanitizer: DomSanitizer
     ) { }
 
   ngOnInit(): void {
@@ -50,10 +54,26 @@ export class MobileHomeComponent implements OnInit {
     this.roter.navigate(['/mensagem']);
   }
 
-  getPetImageUrl(imageName: string): string {
-    const imageUrl = this.variableValue + 'publi/images/' + imageName;
-    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', 'true');
-    return imageUrl + '?' + headers.keys().map(key => `${key}=${headers.get(key)}`).join('&');
+  getPetImage(imageName: string): Observable<SafeUrl> {
+    if(!this.petImages[imageName]) {
+      this.petImages[imageName] = this.apiService.retornarImagem(imageName).pipe(
+        map((blob: Blob) => this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob)))
+      );
+    }
+    return this.petImages[imageName];
   }
-  
+
 }
+
+
+
+
+
+
+  // getPetImageUrl(imageName: string): Observable<Blob>  {
+    // const imageUrl = this.variableValue + 'publi/images/' + imageName;
+    // const headers = new HttpHeaders().set('ngrok-skip-browser-warning', 'true');
+    // const urlWithHeaders = imageUrl + '?' + headers.keys().map(key => `${key}=${headers.get(key)}`).join('&');
+    // return this.apiService.retornarImagem(imageName);
+  // }
+

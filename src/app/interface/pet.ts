@@ -1,11 +1,13 @@
 export interface Pet {
 
     imageName: string,
-    comentario: string,
-    nomePet: string,
+    image: File | null,
+    comment: string,
+    petName: string,
     idadePet: string,
     tamanhoPet: string,
     cidadePet: string,
+    userId: number,
 
     usuarioLogin: {
 

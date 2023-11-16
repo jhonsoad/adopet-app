@@ -10,11 +10,11 @@
 
     <form *ngIf="!loading" (ngSubmit)="criarPost()" class="ff-poppins" #postarForm="ngForm">
 
-      <label for="imagem">Foto do Pet</label>
-      <input type="file" id="imagem" name="imagem" accept="image/*" (change)="onFileSelected($event)">
+      <label for="image">Foto do Pet</label>
+      <input type="file" id="image" name="image" accept="image/*" (change)="onFileSelected($event)">
 
-      <label for="nomePet">Nome do Pet</label>
-      <input type="text" id="nomePet" name="nomePet" [(ngModel)]="formData.nomePet" required placeholder="Insira o nome do pet">
+      <label for="petName">Nome do Pet</label>
+      <input type="text" id="petName" name="petName" [(ngModel)]="formData.petName" required placeholder="Insira o nome do pet">
 
       <label for="idadePet">Idade do Pet</label>
       <input type="text" id="idadePet" name="idadePet" [(ngModel)]="formData.idadePet" required placeholder="Exemplo: 2 semanas">
@@ -23,7 +23,10 @@
       <input type="text" id="tamanhoPet" name="tamanhoPet" [(ngModel)]="formData.tamanhoPet" required placeholder="Insira o tamanho do animal">
 
       <label for="cidadePet">Cidade do animal</label>
-      <input type="text" id="cidadePet" name="cidadePet" [(ngModel)]="formData.cidadePet" required placeholder="Insira a cidade do animal">
+      <input type="text" id="cidadePet" name="cidadePet" [(ngModel)]="formData.cidadePet" required placeholder="Exemplo: São Paulo (SP)">
+
+      <label for="comment">Comentario</label>
+      <input type="text" id="comment" name="comment" [(ngModel)]="formData.comment" required placeholder="Exemplo: Calmo e educado">
 
       <button type="submit" class="enviar">Enviar</button>
     </form>
