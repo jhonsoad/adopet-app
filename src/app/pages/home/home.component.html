@@ -9,6 +9,10 @@
         <h1 class="ff-poppins">
             Olá! Veja os amigos disponíveis para adoção!
         </h1>
+
+        <div class="cadastroPet">
+            <button routerLink='/postar'>Cadastre um Pet</button>
+        </div>
         
         <div class="ff-poppins pet" *ngIf="listPets.length > 0; else semPet">
             <section *ngFor="let pet of listPets">

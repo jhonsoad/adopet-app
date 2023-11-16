@@ -32,47 +32,45 @@ constructor(private http: HttpClient) { }
     const url = `${this.API}account/${userId}`;
     return this.http.get<Usuario>(url);
   }
-
-  // Excluir conta de usuário
-  deleteConta(id: number): Observable<Usuario> {
-    const url = `${this.API}account/delete/${id}`;
-    return this.http.delete<Usuario>(url);
-  }
-
+  
   // Criar um post
-  criarPost(data: Pet): Observable<Pet> {
+  criarPost(data: FormData): Observable<any> {
     const url = `${this.API}publi/createPost`;
-    return this.http.post<Pet>(url, data);
+    return this.http.post(url, data);
   }
-
-  // Retornar imagem
-  retornarImagem(imageName: string): Observable<any> {
-    const url = `${this.API}publi/images/${imageName}`;
-    return this.http.get(url, { responseType: 'blob' });
-  }
-
-  // Excluir um post
-  deletePost(id: number): Observable<Pet> {
-    const url = `${this.API}account/delete/${id}`;
-    return this.http.delete<Pet>(url);
-  }
-
+  
   // Listar posts
   listarPosts(): Observable<Post[]> {
     const url = `${this.API}publi/all`;
     return this.http.get<Post[]>(url);
   }
-
-  // Listar um post
-  listarPost(id: number): Observable<Post> {
-    const url = `${this.API}publi/${id}`;
-    return this.http.get<Post>(url);
-  }
-
+  
   // Logar
   logar(data: Usuario): Observable<Usuario> {
     const url = `${this.API}login`;
     return this.http.post<Usuario>(url, data);
   }
-
+  
+  
+  
+  // Retornar imagem
+  // retornarImagem(imageName: string): Observable<any> {
+  //   const url = `${this.API}publi/images/${imageName}`;
+  //   return this.http.get(url, { responseType: 'blob' });
+  // }
+  // Excluir conta de usuário
+  // deleteConta(id: number): Observable<Usuario> {
+  //   const url = `${this.API}account/delete/${id}`;
+  //   return this.http.delete<Usuario>(url);
+  // }
+  // Excluir um post
+  // deletePost(id: number): Observable<Pet> {
+  //   const url = `${this.API}publi/delete/${id}`;
+  //   return this.http.delete<Pet>(url);
+  // }
+  // Listar um post
+  // listarPost(id: number): Observable<Post> {
+  //   const url = `${this.API}publi/${id}`;
+  //   return this.http.get<Post>(url);
+  // }
 }
