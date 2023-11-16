@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Pet } from '../../interface/pet';
+// import { Pet } from '../../interface/pet';
 import { Observable } from 'rxjs';
 import { Usuario } from '../../interface/usuario';
 import { Post } from '../../interface/post';
@@ -51,13 +51,13 @@ constructor(private http: HttpClient) { }
     return this.http.post<Usuario>(url, data);
   }
   
-  
-  
-  // Retornar imagem
-  // retornarImagem(imageName: string): Observable<any> {
-  //   const url = `${this.API}publi/images/${imageName}`;
-  //   return this.http.get(url, { responseType: 'blob' });
-  // }
+  //Retornar imagem
+  retornarImagem(imageName: string): Observable<Blob> {
+    const url = `${this.API}publi/images/${imageName}`;
+    return this.http.get(url, { responseType: 'blob' });
+  }
+
+}
   // Excluir conta de usuário
   // deleteConta(id: number): Observable<Usuario> {
   //   const url = `${this.API}account/delete/${id}`;
@@ -73,4 +73,4 @@ constructor(private http: HttpClient) { }
   //   const url = `${this.API}publi/${id}`;
   //   return this.http.get<Post>(url);
   // }
-}
+
