@@ -1,21 +1,29 @@
 <main>
     <div>
-        <h2 class="ff-poppins">Envie uma mensagem para a pessoa ou instituição que está cuidando do animal:</h2>
-        <img *ngIf="loading" src="../../../assets/loading.svg" alt="Carregando">
-        <form *ngIf="!loading" (ngSubmit)="enviarMensagem()" class="ff-poppins" #mensagemForm="ngForm">
-            <label for="nomeUsuario">Nome</label>
-            <input type="text" name="nomeUsuario" id="nomeUsuario" [(ngModel)]="formData.nomeUsuario" required placeholder="Insira seu nome completo">
-            
-            <label for="telefoneUsuario">Telefone</label>
-            <input style="color: #BCBCBC" type="tel" name="telefoneUsuario" id="telefoneUsuario" [(ngModel)]="formData.telefoneUsuario" required placeholder="Insira seu telefone e/ou whatsapp">
-            
-            <label for="petName">Nome do animal</label>
-            <input type="text" name="petName" id="petName" [(ngModel)]="formData.petName" required placeholder="Por qual animal você se interessou?">
-            
-            <label for="mensagem">Mensagem</label>
-            <textarea cols="70" rows="10" name="mensagem" id="mensagem" [(ngModel)]="formData.mensagem" required placeholder="Escreva sua mensagem."></textarea>
-            
-            <button type="submit" class="enviar">Enviar</button>
-        </form>
+        <div *ngIf="loading" class="loading">
+            <img  src="../../../assets/loading.svg" alt="Carregando">
+            <p class="ff-poppins aguarde">AUGUARDE...</p>
+        </div>
+        
+        <div *ngIf="!loading">
+            <h2 class="ff-poppins">Envie uma mensagem para a pessoa ou instituição que está cuidando do animal:</h2>
+
+            <form (ngSubmit)="enviarMensagem()" class="ff-poppins" #mensagemForm="ngForm">
+                <label for="nomeUsuario">Nome</label>
+                <input type="text" name="nomeUsuario" id="nomeUsuario" [(ngModel)]="formData.nomeUsuario" required placeholder="Insira seu nome completo">
+                
+                <label for="telefoneUsuario">Telefone</label>
+                <input style="color: #BCBCBC" type="tel" name="telefoneUsuario" id="telefoneUsuario" [(ngModel)]="formData.telefoneUsuario" required placeholder="Insira seu telefone e/ou whatsapp">
+                
+                <label for="petName">Nome do animal</label>
+                <input type="text" name="petName" id="petName" [(ngModel)]="formData.petName" required placeholder="Por qual animal você se interessou?">
+                
+                <label for="mensagem">Mensagem</label>
+                <textarea cols="70" rows="10" name="mensagem" id="mensagem" [(ngModel)]="formData.mensagem" required placeholder="Escreva sua mensagem."></textarea>
+                
+                <button type="submit" class="enviar">Enviar</button>
+            </form>
+
+        </div>
     </div>
 </main>

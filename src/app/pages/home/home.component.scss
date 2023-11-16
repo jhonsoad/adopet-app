@@ -46,6 +46,10 @@ div {
             margin: 0;
         }
 
+        img {
+            max-width: 205px;
+        }
+
         .perfil {
             margin-bottom: 1.875rem;
             font-size: 14px;
@@ -71,6 +75,7 @@ div {
     font-size: 16px;
     color: red;
     text-align: center;
+    margin-top: 30px;
 }
 
 .aguarde {
@@ -80,4 +85,19 @@ div {
     
 .loading {
     margin-top: 8rem;
+    width: auto;
+}
+
+.cadastroPet {
+    align-items: flex-end;
+    width: 90%;
+    button {
+        color: #FFF;
+        text-align: center;
+        font-family: Poppins;
+        font-weight: 600;
+        background-color: #FC7071;
+        padding: 8px 10px 6px 10px;
+        border-radius: 6px;
+    }
 }

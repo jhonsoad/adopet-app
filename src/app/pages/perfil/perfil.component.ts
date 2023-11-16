@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MobilePerfilComponent implements OnInit {
 
+  loading: boolean = false;
+
   formData: any = {};
 
   constructor() { }
@@ -15,6 +17,7 @@ export class MobilePerfilComponent implements OnInit {
   }
 
   alterarCadastro(){
+    this.loading = true;
     alert("Alterar cadastro");
   
   }

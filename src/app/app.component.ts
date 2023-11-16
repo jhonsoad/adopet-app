@@ -54,7 +54,7 @@ export class AppComponent {
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url.includes('/cadastro') || event.url.includes('/login')) {
+        if (event.url.includes('/cadastro') || event.url.includes('/login') || event.url.includes('/postar')) {
           this.utilsService.setBackgroundPaws('url(../assets/Patas.svg)');
         } else {
           this.utilsService.setBackgroundPaws('url()');
