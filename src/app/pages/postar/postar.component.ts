@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pet } from 'src/app/interface/pet';
 import { ApiService } from 'src/app/services/api/api.service';
 
@@ -28,7 +29,10 @@ export class PostarComponent implements OnInit {
 
   };
 
-  constructor(private apiService: ApiService) { }
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    ) { }
 
   ngOnInit() {
   }
@@ -59,6 +63,7 @@ export class PostarComponent implements OnInit {
           setTimeout(() => {
             this.loading = false;
           }, 2000);
+          this.router.navigate(['/home']);
           console.log('Post criado com sucesso!', response);
         },
         error: (error) => {

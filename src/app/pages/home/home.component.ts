@@ -21,7 +21,7 @@ export class MobileHomeComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private roter: Router,
+    private router: Router,
     private sanitizer: DomSanitizer
     ) { }
 
@@ -51,7 +51,7 @@ export class MobileHomeComponent implements OnInit {
   }
 
   irParaMensagem() {
-    this.roter.navigate(['/mensagem']);
+    this.router.navigate(['/mensagem']);
   }
 
   getPetImage(imageName: string): Observable<SafeUrl> {
