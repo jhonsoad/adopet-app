@@ -56,17 +56,17 @@ constructor(private http: HttpClient) { }
     const url = `${this.API}publi/images/${imageName}`;
     return this.http.get(url, { responseType: 'blob' });
   }
-
+  
+  //Excluir um post
+  deletePost(id: number): Observable<Post> {
+    const url = `${this.API}publi/delete/${id}`;
+    return this.http.delete<Post>(url);
+  }
 }
   // Excluir conta de usuário
   // deleteConta(id: number): Observable<Usuario> {
   //   const url = `${this.API}account/delete/${id}`;
   //   return this.http.delete<Usuario>(url);
-  // }
-  // Excluir um post
-  // deletePost(id: number): Observable<Pet> {
-  //   const url = `${this.API}publi/delete/${id}`;
-  //   return this.http.delete<Pet>(url);
   // }
   // Listar um post
   // listarPost(id: number): Observable<Post> {

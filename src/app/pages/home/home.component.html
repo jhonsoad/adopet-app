@@ -9,15 +9,11 @@
         <h1 class="ff-poppins">
             Olá! Veja os amigos disponíveis para adoção!
         </h1>
-
-        <div class="cadastroPet">
-            <button routerLink='/postar'>Cadastre um Pet</button>
-        </div>
         
         <div class="ff-poppins pet" *ngIf="listPets.length > 0; else semPet">
             <section *ngFor="let pet of listPets">
                 <img [src]="getPetImage(pet.imageName) | async" alt="Imagem do Pet">
-                <div class="dados">
+                <div *ngIf="!showTooltip" class="dados">
                     <h2>{{ pet.petName }}</h2>
                     <p class="perfil">
                         {{ pet.idadePet }}<br>
@@ -25,7 +21,14 @@
                         {{ pet.comment }}
                     </p>
                     <p class="location">{{ pet.cidadePet }}</p>
-                    <p class="contato" (click)="irParaMensagem()"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
+                    <p class="contato" (click)="toggleTooltip()"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
+                </div>
+                <div *ngIf="showTooltip" class="tooltip">
+                    <p>Entre em contato com {{ pet.usuario.nomeUsuario }}
+                    <p>Pelo telefone {{ pet.usuario.telefoneUsuario }}</p>
+                    <p>Ou</p>
+                    <p>Pelo email {{ pet.usuario.email }}</p>
+                    <button (click)="closeTooltip()">Fechar</button>
                 </div>
             </section>
         </div>
