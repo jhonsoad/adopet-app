@@ -16,6 +16,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api/api.service';
 import { FormsModule } from '@angular/forms';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
+import { HomeAdmComponent } from './pages/home-adm/home-adm.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpInterceptorService } from './services/http-interceptor/http-interce
     MobileLoginComponent,
     MobilePerfilComponent,
     MobileMensagemComponent,
-    PostarComponent
+    PostarComponent,
+    HomeAdmComponent
   ],
   imports: [
     BrowserModule,

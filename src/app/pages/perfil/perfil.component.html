@@ -1,31 +1,37 @@
 <main>
     <div>
-        
         <div *ngIf="loading" class="loading">
             <img  src="../../../assets/loading.svg" alt="Carregando">
             <p class="ff-poppins aguarde">AUGUARDE...</p>
         </div>
+
         <div *ngIf="!loading">
-            <h2 class="ff-poppins">Esse é o perfil que aparece para responsáveis ou ONGs que recebem sua mensagem.</h2>
+            <h2 class="ff-poppins">Se voçe participa de alguma ONG e gostaria de cadastrar pets em nosso site informe seus dados que entraremos em contato.</h2>
             
-            <form (ngSubmit)="alterarCadastro()" class="ff-poppins" #alterarForm="ngForm">
-                <h3>Perfil</h3>
-                <label for="imagem">Foto</label>
-                <input type="file" name="imagem" id="imagem" accept="image/*">
-    
-                <label for="nomeUsuario">Nome</label>
+            <form (ngSubmit)="enviarMensagem()" class="ff-poppins" #alterarForm="ngForm">
+                <label for="nomeUsuario">Nome Completo</label>
                 <input type="text" name="nomeUsuario" id="nomeUsuario" [(ngModel)]="formData.nomeUsuario" required placeholder="Insira seu nome completo">
                 
+                <label for="nomeOng">Nome da ONG</label>
+                <input type="text" name="nomeOng" id="nomeOng" [(ngModel)]="formData.nomeOng" required placeholder="Insira o nome da sua ONG">
+                
+                <label for="cargoUsuario">Cargo/Função na ONG</label>
+                <input type="text" name="cargoUsuario" id="cargoUsuario" [(ngModel)]="formData.cargoUsuario" required placeholder="Insira o seu cargo/função na ONG">
+                
                 <label for="telefoneUsuario">Telefone</label>
-                <input style="color: #BCBCBC" type="tel" name="telefoneUsuario" id="telefoneUsuario" [(ngModel)]="formData.telefoneUsuario" required placeholder="Insira seu telefone e/ou whatsapp">
+                <input type="tel" name="telefoneUsuario" id="telefoneUsuario" [(ngModel)]="formData.telefoneUsuario" required placeholder="Insira seu telefone e/ou whatsapp">
+
+                <label for="emailUsuario">Email</label>
+                <input type="text" name="emailUsuario" id="emailUsuario" [(ngModel)]="formData.emailUsuario" required placeholder="Insira o seu email coorporativo">
+
+                <label for="cidadeOng">Endereço da ONG</label>
+                <input type="text" name="cidadeOng" id="cidadeOng" [(ngModel)]="formData.cidadeOng" required placeholder="Insira o endereço da ONG">
                 
-                <label for="cidadePet">Cidade</label>
-                <input type="text" name="cidadePet" id="cidadePet" [(ngModel)]="formData.cidadePet" required placeholder="Insira o nome da sua cidade">
-                
-                <label for="sobre">Sobre</label>
-                <textarea cols="70" rows="10" name="sobre" id="sobre" [(ngModel)]="formData.sobre" placeholder="Escreva sua mensagem.">Escreva sobre você</textarea>
+                <label for="siteOng">Site da ONG</label>
+                <input type="text" name="siteOng" id="siteOng" [(ngModel)]="formData.siteOng" required placeholder="Insira o site da ONG">
                 
                 <button class="salvar">Salvar</button>
+
             </form>
         </div>
     </div>

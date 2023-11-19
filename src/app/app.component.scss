@@ -11,7 +11,21 @@ div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // background-image: url('');
     background-repeat: no-repeat;
     background-position: top right;
 }
+
+/* Estilos para mobile (até 767px) */
+@media screen and (max-width: 767px) {
+    /* Coloque aqui os estilos para telas menores, como tablets */
+  }
+  
+  /* Estilos para tablets (768px a 1439px) */
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    /* Coloque aqui os estilos específicos para tablets */
+  }
+  
+  /* Estilos para desktop (1440px e acima) */
+  @media screen and (min-width: 1440px) {
+    /* Coloque aqui os estilos para telas maiores, como desktops */
+  }

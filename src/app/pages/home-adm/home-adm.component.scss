@@ -30,6 +30,12 @@ div {
         .dados{
             display: flex;
             flex-direction: column;
+
+            .botaoExcluir {
+                img {
+                    max-width: 20px;
+                }
+            }
         }
 
         h2 {
@@ -47,13 +53,12 @@ div {
             margin: 0;
         }
 
-        img {
+        .ImagemPet {
             max-width: 200px;
             margin: 0 3px;
         }
 
         .perfil {
-            margin-bottom: 1.875rem;
             font-size: 14px;
             line-height: 20px;
         }
@@ -90,6 +95,19 @@ div {
     width: auto;
 }
 
+.cadastroPet {
+    align-items: flex-end;
+    width: 90%;
+    .botaoPostar {
+        color: #FFF;
+        text-align: center;
+        font-family: Poppins;
+        font-weight: 600;
+        background-color: #FC7071;
+        padding: 8px 10px 6px 10px;
+        border-radius: 6px;
+    }
+
 .tooltip {
     position: absolute;
     background-color: #fff;
@@ -97,4 +115,5 @@ div {
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 9999;
+    }
 }
