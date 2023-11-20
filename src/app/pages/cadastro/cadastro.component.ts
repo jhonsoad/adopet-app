@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interface/usuario';
 import { ApiService } from 'src/app/services/api/api.service';
 import { UtilsService } from 'src/app/services/utils/utils.service';
@@ -20,7 +21,10 @@ export class MobileCadastroComponent implements OnInit {
   confirmaSenha: string = '';
   loading: boolean = false;
 
-  constructor(private utilsService: UtilsService, private apiService: ApiService) {}
+  constructor(
+    private utilsService: UtilsService,
+    private router: Router,
+     private apiService: ApiService) {}
 
   ngOnInit(): void {
     // this.changeBackgroundColor()
@@ -47,6 +51,7 @@ export class MobileCadastroComponent implements OnInit {
           this.loading = false;
         }, 2000);
         console.log('Conta criada com sucesso!', response);
+        this.router.navigate(['/admin']);
       },
       error: (error) => {
         setTimeout(() => {
