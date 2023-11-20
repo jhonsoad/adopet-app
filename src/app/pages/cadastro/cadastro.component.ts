@@ -20,6 +20,8 @@ export class MobileCadastroComponent implements OnInit {
   };
   confirmaSenha: string = '';
   loading: boolean = false;
+  loginError: string = '';
+
 
   constructor(
     private utilsService: UtilsService,
@@ -53,11 +55,13 @@ export class MobileCadastroComponent implements OnInit {
         console.log('Conta criada com sucesso!', response);
         this.router.navigate(['/admin']);
       },
-      error: (error) => {
+      error: (erro) => {
         setTimeout(() => {
           this.loading = false;
         }, 2000);
-        console.error('Erro ao criar a conta:', error);
+        console.error('Erro:', erro);
+        console.error('Erro ao criar a conta:', erro.error[0]);
+        this.loginError = `${erro.error[0].campo} - ${erro.error[0].message};`
       }
   });
   }
