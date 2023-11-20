@@ -63,7 +63,7 @@ export class PostarComponent implements OnInit {
           setTimeout(() => {
             this.loading = false;
           }, 2000);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/admin']);
           console.log('Post criado com sucesso!', response);
         },
         error: (error) => {
