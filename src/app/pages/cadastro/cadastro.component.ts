@@ -11,11 +11,11 @@ import { UtilsService } from 'src/app/services/utils/utils.service';
 })
 export class MobileCadastroComponent implements OnInit {
 
-  formData: Usuario = {
+  formData: any = {
     // id: 2,
     email: '',
     nomeUsuario: '',
-    senha: '',
+    senhaUsuario: '',
     telefoneUsuario: '13997622957'
   };
   confirmaSenha: string = '';
