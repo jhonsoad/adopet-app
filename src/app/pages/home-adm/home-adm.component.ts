@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { Post } from 'src/app/interface/post';
 import { ApiService } from 'src/app/services/api/api.service';
@@ -16,17 +17,18 @@ export class HomeAdmComponent implements OnInit {
   errorMessage: string = '';
   variableValue: string = '';
   loading: boolean = true;
-  showTooltip: boolean = false;
+  // showTooltip: boolean = false;
   petImages: { [key: string]: Observable<SafeUrl> } = {};
+  showModal: boolean = false;
 
   constructor(
     private apiService: ApiService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router,
     ) { }
 
   ngOnInit(): void {
     this.listarPets();
-    console.log('listPets: ', this.listPets);
   }
 
   listarPets() {
@@ -38,6 +40,7 @@ export class HomeAdmComponent implements OnInit {
         setTimeout(() => {
           this.loading = false;
         }, 2000);
+        this.router.navigate(['/admin'])
       },
       error: error => {
         this.errorMessage = error;
@@ -45,6 +48,7 @@ export class HomeAdmComponent implements OnInit {
           this.loading = false;
         }, 2000);
         console.log('erro: ', this.errorMessage);
+        this.router.navigate(['/admin'])
       }
     })
   }
@@ -67,6 +71,8 @@ export class HomeAdmComponent implements OnInit {
           this.loading = false;
         }, 2000);
         console.log('res: ', res)
+        this.router.navigate(['/admin'])
+        this.listarPets();
       },
       error: error => {
         this.errorMessage = error;
@@ -74,17 +80,26 @@ export class HomeAdmComponent implements OnInit {
           this.loading = false;
         }, 2000);
         console.log('erro: ', this.errorMessage);
+        this.router.navigate(['/admin'])
       }
     })
   }
 
-  toggleTooltip() {
-    console.log('showTooltip: ', this.showTooltip);
-    this.showTooltip = !this.showTooltip;
+  // toggleTooltip() {
+  //   console.log('showTooltip: ', this.showTooltip);
+  //   this.showTooltip = !this.showTooltip;
+  // }
+
+  // closeTooltip() {
+  //   this.showTooltip = false;
+  // }
+
+  openModal(): void {
+    this.showModal = true;
   }
 
-  closeTooltip() {
-    this.showTooltip = false;
+  closeModal(): void {
+    this.showModal = false;
   }
 
 }
