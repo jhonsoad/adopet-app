@@ -12,6 +12,7 @@
 
       <div class="cadastroPet">
           <button class="botaoPostar" routerLink='/postar'>Cadastre um Pet</button>
+          <button class="botaoPostar" routerLink='/cadastro'>Cadastre um Usuário</button>
       </div>
       
       <div class="ff-poppins pet" *ngIf="listPets.length > 0; else semPet">
@@ -32,14 +33,22 @@
                     {{ pet.comment }}
                 </p>
                 <p class="location">{{ pet.cidadePet }}</p>
-                <p class="contato" (click)="openModal()"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
+                <p class="contato" (click)="openModal(pet)"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
             </div>
 
-            <div *ngIf="showModal" class="modal-background">
+            <div *ngIf="pet.showModal" class="modal-background">
                 <div class="modal">
-                    <button (click)="closeModal()">img src="../../../assets/Botão-de-Fechar.png" alt="botão fechar"</button>
-                    <h2>Minha Modal</h2>
-                    <p>Conteúdo da modal...</p>
+                    <div class="botaoFechar">
+                        <button (click)="closeModal(pet)">
+                            <img src="../../../assets/Botão-de-Fechar.png" alt="botão fechar">
+                        </button>
+                    </div>
+                    <div style="align-items: flex-start;">
+                        <h2 class="ff-poppins modalH2">{{ pet.petName }}</h2>
+                        <p class="ff-poppins info">ONG responsável:<span> {{ pet.usuario.nomeUsuario }}</span></p>
+                        <p class="ff-poppins info">Telefone:<span> {{ pet.usuario.telefoneUsuario }}</span></p>
+                        <p class="ff-poppins info">Email:<span> {{ pet.usuario.email }}</span></p>
+                    </div>
                 </div>
               </div>
 

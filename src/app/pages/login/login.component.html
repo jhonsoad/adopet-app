@@ -13,11 +13,12 @@
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" required placeholder="Insira seu email" [(ngModel)]="formData.email">
                 
-                <label for="senhaUsuario">Senha</label>
-                <input type="password" name="senhaUsuario" id="senhaUsuario" required placeholder="Insira sua senha" [(ngModel)]="formData.senhaUsuario">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" required placeholder="Insira sua senha" [(ngModel)]="formData.senha">
                 
                 <button type="submit" value="Entrar" class="entrar">Entrar</button>
             </form>
+            <div *ngIf="loginError" class="error-msg">{{ loginError }}</div>
         </div>
     </div>
 </main>

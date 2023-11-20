@@ -14,7 +14,7 @@ export class MobileCadastroComponent implements OnInit {
     // id: 2,
     email: '',
     nomeUsuario: '',
-    senhaUsuario: '',
+    senha: '',
     telefoneUsuario: '13997622957'
   };
   confirmaSenha: string = '';
@@ -31,7 +31,7 @@ export class MobileCadastroComponent implements OnInit {
   // }
 
   validarSenha() {
-    if (this.formData.senhaUsuario === this.confirmaSenha) {
+    if (this.formData.senha === this.confirmaSenha) {
       this.cadastrarUsuario();
     } else {
       alert('Senhas não conferem!');

@@ -111,10 +111,22 @@ div {
   
   .modal {
     background: white;
-    padding: 8px 10px;
+    padding: 5px 15px;
     border: 1px solid #ccc;
     flex-direction: row-reverse;
     align-items: flex-start;
+
+    .modalH2 {
+        margin: 10px  auto !important;
+    }
+
+    .info {
+        font-weight: 600 !important;
+    }
+
+    span {
+        font-weight: 400;
+    }
 
     .botaoFechar {
         button {
