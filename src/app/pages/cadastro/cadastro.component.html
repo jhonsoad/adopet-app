@@ -15,6 +15,8 @@
                 Então, antes de buscar seu melhor amigo, precisamos de alguns dados:
             </p>
 
+            <div *ngIf="loginError" class="error-msg">{{ loginError }}</div>
+
             <form (ngSubmit)="cadastrarUsuario()" class="ff-poppins" #cadastroForm="ngForm">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required placeholder="Escolha seu melhor email" [(ngModel)]="formData.email">

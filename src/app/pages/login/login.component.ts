@@ -36,12 +36,12 @@ export class MobileLoginComponent implements OnInit {
         console.log('Conta logadacom sucesso!', res);
         this.router.navigate(['/admin']);
       },
-      error: (error) => {
+      error: (erro) => {
         setTimeout(() => {
           this.loading = false;
         }, 2000);
-        console.error('Erro ao logar na conta:', error);
-        this.loginError = 'Email ou senha incorretos. Por favor, tente novamente.';
+        console.error('Erro ao logar na conta:', erro.error);
+        this.loginError = erro.error;
       }
     });
   }
