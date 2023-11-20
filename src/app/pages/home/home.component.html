@@ -30,6 +30,7 @@
                         Falar com responsável
                     </p>
                 </div>
+                
                 <div *ngIf="pet.showModal" class="modal-background">
                     <div class="modal">
                         <div class="botaoFechar">
@@ -38,13 +39,14 @@
                             </button>
                         </div>
                         <div style="align-items: flex-start;">
-                            <h2 style="align-items: center;" class="ff-poppins">{{ pet.petName }}</h2>
-                            <p class="ff-poppins">ONG responsável {{ pet.usuario.nomeUsuario }}</p>
-                            <p class="ff-poppins">telefone: {{ pet.usuario.telefoneUsuario }}</p>
-                            <p class="ff-poppins">email: {{ pet.usuario.email }}</p>
+                            <h2 class="ff-poppins modalH2">{{ pet.petName }}</h2>
+                            <p class="ff-poppins info">ONG responsável:<span> {{ pet.usuario.nomeUsuario }}</span></p>
+                            <p class="ff-poppins info">Telefone:<span> {{ pet.usuario.telefoneUsuario }}</span></p>
+                            <p class="ff-poppins info">Email:<span> {{ pet.usuario.email }}</span></p>
                         </div>
                     </div>
                 </div>
+
             </section>
         </div>
     </div>

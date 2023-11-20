@@ -17,9 +17,7 @@ export class HomeAdmComponent implements OnInit {
   errorMessage: string = '';
   variableValue: string = '';
   loading: boolean = true;
-  // showTooltip: boolean = false;
   petImages: { [key: string]: Observable<SafeUrl> } = {};
-  showModal: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -85,21 +83,12 @@ export class HomeAdmComponent implements OnInit {
     })
   }
 
-  // toggleTooltip() {
-  //   console.log('showTooltip: ', this.showTooltip);
-  //   this.showTooltip = !this.showTooltip;
-  // }
-
-  // closeTooltip() {
-  //   this.showTooltip = false;
-  // }
-
-  openModal(): void {
-    this.showModal = true;
+  openModal(pet:any): void {
+    pet.showModal = true;
   }
 
-  closeModal(): void {
-    this.showModal = false;
+  closeModal(pet: any): void {
+    pet.showModal = false;
   }
 
 }

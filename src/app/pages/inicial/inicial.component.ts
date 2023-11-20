@@ -16,8 +16,8 @@ export class MobileInicialComponent implements OnInit {
    
   }
 
-  cadastrar() {
-    this.router.navigate(['/cadastro'])
+  adotar() {
+    this.router.navigate(['/home'])
   }
 
   logar() {

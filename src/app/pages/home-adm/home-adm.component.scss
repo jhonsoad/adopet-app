@@ -109,7 +109,8 @@ div {
 }
 
 .cadastroPet {
-    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: row;
     width: 90%;
     .botaoPostar {
         color: #FFF;
@@ -137,18 +138,36 @@ div {
   
   .modal {
     background: white;
-    padding: 20px;
+    padding: 5px 15px;
     border: 1px solid #ccc;
+    flex-direction: row-reverse;
+    align-items: flex-start;
 
-    button {
-        border: none;
-        background: none;
-        position: absolute;
+    .modalH2 {
+        margin: 10px  auto !important;
     }
 
-    img {
-        max-width: 10px !important;
-        max-height: 10px !important;
+    .info {
+        font-weight: 600 !important;
     }
+
+    span {
+        font-weight: 400;
+    }
+
+    .botaoFechar {
+        button {
+            border: none;
+            background: none;
+            position: absolute;
+            
+                img {
+                    max-width: 10px !important;
+                    max-height: 10px !important;
+                }
+        }
+
+    }
+
   }
   
