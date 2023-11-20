@@ -1,19 +1,23 @@
 <main>
-    
+
     <div *ngIf="loading" class="loading">
-        <img  src="../../../assets/loading.svg" alt="Carregando">
+        <img src="../../../assets/loading.svg" alt="Carregando">
         <p class="ff-poppins aguarde">AUGUARDE...</p>
     </div>
-    
+
     <div *ngIf="!loading">
         <h1 class="ff-poppins">
             Olá! Veja os amigos disponíveis para adoção!
         </h1>
-        
+
         <div class="ff-poppins pet" *ngIf="listPets.length > 0; else semPet">
             <section *ngFor="let pet of listPets">
-                <img [src]="getPetImage(pet.imageName) | async" alt="Imagem do Pet">
-                <div *ngIf="!showTooltip" class="dados">
+
+                <div class="imagemPet">
+                    <img [src]="getPetImage(pet.imageName) | async" alt="Imagem do Pet">
+                </div>
+
+                <div class="dados">
                     <h2>{{ pet.petName }}</h2>
                     <p class="perfil">
                         {{ pet.idadePet }}<br>
@@ -21,18 +25,30 @@
                         {{ pet.comment }}
                     </p>
                     <p class="location">{{ pet.cidadePet }}</p>
-                    <p class="contato" (click)="toggleTooltip()"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
+                    <p class="contato" (click)="openModal(pet)">
+                        <img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">
+                        Falar com responsável
+                    </p>
                 </div>
-                <div *ngIf="showTooltip" class="tooltip">
-                    <p>Entre em contato com {{ pet.usuario.nomeUsuario }}
-                    <p>Pelo telefone {{ pet.usuario.telefoneUsuario }}</p>
-                    <p>Ou</p>
-                    <p>Pelo email {{ pet.usuario.email }}</p>
-                    <button (click)="closeTooltip()">Fechar</button>
+                <div *ngIf="pet.showModal" class="modal-background">
+                    <div class="modal">
+                        <div class="botaoFechar">
+                            <button (click)="closeModal(pet)">
+                                <img src="../../../assets/Botão-de-Fechar.png" alt="botão fechar">
+                            </button>
+                        </div>
+                        <div style="align-items: flex-start;">
+                            <h2 style="align-items: center;" class="ff-poppins">{{ pet.petName }}</h2>
+                            <p class="ff-poppins">ONG responsável {{ pet.usuario.nomeUsuario }}</p>
+                            <p class="ff-poppins">telefone: {{ pet.usuario.telefoneUsuario }}</p>
+                            <p class="ff-poppins">email: {{ pet.usuario.email }}</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
+
     <ng-template #semPet>
         <p class="erro">Não foi possível carregar os Pets. Tente novamente mais tarde</p>
     </ng-template>

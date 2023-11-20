@@ -5,7 +5,7 @@ h1 {
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
-    margin: 2rem auto;
+    margin: 0 auto 2rem auto;
     width: 63%;
 }
 
@@ -24,12 +24,14 @@ div {
     section {
         display: flex;
         background-color: #F6F6F6;
-        justify-content: space-around;
+        justify-content: space-between;
         padding: 16px 4px 19px;
+        min-width: 99%;
 
         .dados{
-            display: flex;
-            flex-direction: column;
+            width: 41%;
+            justify-content: space-between;
+            align-items: baseline;
         }
 
         h2 {
@@ -37,8 +39,7 @@ div {
             font-size: 16px;
             font-weight: 600;
             line-height: 20px;
-            margin-bottom: 0.5rem;
-            margin-top: 0;
+            margin: 0;
         }
 
         p {
@@ -47,13 +48,18 @@ div {
             margin: 0;
         }
 
+        .imagemPet {
+            width: 55%;
+        }
+
         img {
             max-width: 200px;
+            max-height: 160px;
             margin: 0 3px;
         }
 
         .perfil {
-            margin-bottom: 1.875rem;
+            // margin-bottom: 1.875rem;
             font-size: 14px;
             line-height: 20px;
         }
@@ -61,7 +67,7 @@ div {
         .location {
             font-size: 12px;
             line-height: 16px;
-            margin-bottom: 7px;
+            // margin-bottom: 7px;
         }
 
         .contato {
@@ -90,11 +96,39 @@ div {
     width: auto;
 }
 
-.tooltip {
-    position: absolute;
-    background-color: #fff;
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Aqui, o último valor define a opacidade do fundo escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: white;
+    padding: 8px 10px;
     border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
-}
+    flex-direction: row-reverse;
+    align-items: flex-start;
+
+    .botaoFechar {
+        button {
+            border: none;
+            background: none;
+            position: absolute;
+            
+                img {
+                    max-width: 10px !important;
+                    max-height: 10px !important;
+                }
+        }
+
+    }
+
+  }
+  

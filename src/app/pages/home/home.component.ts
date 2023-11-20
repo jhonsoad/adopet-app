@@ -1,4 +1,3 @@
-// import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Observable, map } from 'rxjs';
@@ -16,7 +15,6 @@ export class MobileHomeComponent implements OnInit {
   errorMessage: string = '';
   variableValue: string = '';
   loading: boolean = true;
-  showTooltip: boolean = false;
   petImages: { [key: string]: Observable<SafeUrl> } = {};
 
   constructor(
@@ -26,7 +24,6 @@ export class MobileHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarPets();
-    console.log('listPets: ', this.listPets);
   }
 
   listarPets() {
@@ -58,26 +55,13 @@ export class MobileHomeComponent implements OnInit {
     return this.petImages[imageName];
   }
 
-  toggleTooltip() {
-    console.log('showTooltip: ', this.showTooltip);
-    this.showTooltip = !this.showTooltip;
+  openModal(pet: any): void {
+    pet.showModal = true;
   }
 
-  closeTooltip() {
-    this.showTooltip = false;
+  closeModal(pet: any): void {
+    pet.showModal = false;
   }
 
 }
-
-
-
-
-
-
-  // getPetImageUrl(imageName: string): Observable<Blob>  {
-    // const imageUrl = this.variableValue + 'publi/images/' + imageName;
-    // const headers = new HttpHeaders().set('ngrok-skip-browser-warning', 'true');
-    // const urlWithHeaders = imageUrl + '?' + headers.keys().map(key => `${key}=${headers.get(key)}`).join('&');
-    // return this.apiService.retornarImagem(imageName);
-  // }
 

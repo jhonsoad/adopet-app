@@ -9,7 +9,7 @@ import { Router } from '@angular/router'
 export class MobileInicialComponent implements OnInit {
 
   constructor(
-    private roter: Router,
+    private router: Router,
     ) { }
 
   ngOnInit(): void {
@@ -17,11 +17,11 @@ export class MobileInicialComponent implements OnInit {
   }
 
   cadastrar() {
-    this.roter.navigate(['/cadastro'])
+    this.router.navigate(['/cadastro'])
   }
 
   logar() {
-    this.roter.navigate(['/login'])
+    this.router.navigate(['/login'])
   }
 
 }

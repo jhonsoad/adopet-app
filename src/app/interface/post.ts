@@ -7,6 +7,7 @@ export interface Post {
     idadePet: number,
     tamanhoPet: string,
     cidadePet: string,
+    showModal?: boolean;
     usuario: {
 
         id: number,
