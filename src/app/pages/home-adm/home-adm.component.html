@@ -25,7 +25,7 @@
             <div class="dados">
                 <div class="h2Excluir">
                     <h2>{{ pet.petName }}</h2>
-                    <button class="botaoExcluir" (click)="excluir(pet.idPost)" ><img src="../../../assets/icone-excluir.png" alt="botão excluir"></button>
+                    <button class="botaoExcluir" (click)="openModal(pet, 'ModalExcluir')" ><img src="../../../assets/icone-excluir.png" alt="botão excluir"></button>
                 </div>
                 <p class="perfil">
                     {{ pet.idadePet }}<br>
@@ -33,13 +33,13 @@
                     {{ pet.comment }}
                 </p>
                 <p class="location">{{ pet.cidadePet }}</p>
-                <p class="contato" (click)="openModal(pet)"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
+                <p class="contato" (click)="openModal(pet, 'ModalContato')"><img src="../../../../assets/icone_mensagem.svg" aria-hidden="true">Falar com responsável</p>
             </div>
 
             <div *ngIf="pet.showModal" class="modal-background">
                 <div class="modal">
                     <div class="botaoFechar">
-                        <button (click)="closeModal(pet)">
+                        <button (click)="closeModal(pet, 'ModalContato')">
                             <img src="../../../assets/Botão-de-Fechar.png" alt="botão fechar">
                         </button>
                     </div>
@@ -48,6 +48,23 @@
                         <p class="ff-poppins info">ONG responsável:<span> {{ pet.usuario.nomeUsuario }}</span></p>
                         <p class="ff-poppins info">Telefone:<span> {{ pet.usuario.telefoneUsuario }}</span></p>
                         <p class="ff-poppins info">Email:<span> {{ pet.usuario.email }}</span></p>
+                    </div>
+                </div>
+              </div>
+
+              <div *ngIf="pet.showDeleteModal" class="modal-background">
+                <div class="modal">
+                    <div class="botaoFechar">
+                        <button (click)="closeModal(pet, 'ModalExcluir')">
+                            <img src="../../../assets/Botão-de-Fechar.png" alt="botão fechar">
+                        </button>
+                    </div>
+                    <div style="align-items: flex-start;">
+                        <h2 class="ff-poppins modalH2" style="font-size: 14px; margin-top: 1.5rem !important;">Tem certeza que deseja excluir {{ pet.petName }} ?</h2>
+                        <div class="botoesModal">
+                            <button class="botaoExcluir" (click)="excluir(pet.idPost, pet, 'ModalExcluir')">Sim</button>
+                            <button class="botaoExcluir" (click)="closeModal(pet, 'ModalExcluir')">Cancelar</button>
+                        </div>
                     </div>
                 </div>
               </div>
