@@ -169,5 +169,20 @@ div {
 
     }
 
+    .botoesModal {
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 1rem;
+        
+        .botaoExcluir {
+            color: #FFF;
+            font-family: Poppins;
+            font-weight: 600;
+            background-color: #FC7071;
+            padding: 8px 10px 6px 10px;
+            border-radius: 6px;
+        }
+    }
+
   }
   
