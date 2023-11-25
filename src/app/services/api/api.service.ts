@@ -58,9 +58,9 @@ constructor(private http: HttpClient) { }
   }
   
   //Excluir um post
-  deletePost(id: number): Observable<Post> {
+  deletePost(id: number): Observable<any> {
     const url = `${this.API}publi/delete/${id}`;
-    return this.http.delete<Post>(url);
+    return this.http.delete(url);
   }
 }
   // Excluir conta de usuário

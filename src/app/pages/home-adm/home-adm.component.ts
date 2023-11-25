@@ -56,7 +56,6 @@ export class HomeAdmComponent implements OnInit {
 
   excluir(id: number, pet: any, type: string) {
     this.closeModal(pet, type);
-    // this.loading = true;
     this.apiService.deletePost(id).subscribe({
       next: (res) => {
         console.log('res: ', res)
