@@ -8,6 +8,13 @@
         <div *ngIf="!loading">
             <h2 class="ff-poppins">Se voçe participa de alguma ONG e gostaria de cadastrar pets em nosso site informe seus dados que entraremos em contato.</h2>
             
+            <div *ngIf="envioSucesso">
+                <p class="sucesso">
+                    Mensagem enviada com sucesso! 
+                    Aguarde que entraremos em contato
+                </p>
+            </div>
+            
             <form (ngSubmit)="enviarMensagem()" class="ff-poppins" #alterarForm="ngForm">
                 <label for="nomeUsuario">Nome Completo</label>
                 <input type="text" name="nomeUsuario" id="nomeUsuario" [(ngModel)]="formData.nomeUsuario" required placeholder="Insira seu nome completo">
