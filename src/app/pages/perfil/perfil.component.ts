@@ -9,6 +9,8 @@ import emailjs from '@emailjs/browser';
 export class MobilePerfilComponent implements OnInit {
 
   loading: boolean = false;
+  envioSucesso: boolean = false;
+  envioErro: boolean = false;
 
   formData: any = {
 
@@ -45,12 +47,14 @@ export class MobilePerfilComponent implements OnInit {
     setTimeout( () =>{
       console.log('SUCCESS!', response.status, response.text);
       this.loading = false;
+      this.envioSucesso = true;
     }, 2000)
 
 	} catch (err: any) { 
     setTimeout(() => {
       console.log('FAILED...', err);
       this.loading = false;
+      this.envioErro = true
     }, 2000);
   }
 

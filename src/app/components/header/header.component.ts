@@ -41,7 +41,7 @@ export class HeaderComponent {
   }
 
   goHome() {
-    this.router.navigate(['/home'])
+    this.router.navigate(['/inicial'])
   }
 
   goMessage() {
